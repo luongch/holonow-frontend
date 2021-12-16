@@ -8,10 +8,10 @@ function App() {
             borderBottom: "solid 1px",
             paddingBottom: "1rem"
       }}>
+        <Link to="live">Live</Link> |{" "}
         <Link to="videos">Videos</Link> |{" "}
         <Link to="about">About</Link>        
       </nav>
-      <>Home Page</>
       <Outlet></Outlet>
     </div>
   );
