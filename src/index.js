@@ -12,7 +12,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/live" element={<Livestreams />}></Route>
-          <Route path="/videos" element={<Videos />}></Route>
+          <Route path="/archive" element={<Videos />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="*" element={"Nothing here"}></Route>
         </Route>        

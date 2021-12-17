@@ -20,8 +20,7 @@ const Videos = () => {
       }
       
       const Video = (props) => {
-        const {_id,title,id,author} = props.video;
-        console.log("_id", _id)
+        const {title,id,author} = props.video;
         return (
           <li>
             <h1>{title}</h1>
@@ -30,12 +29,9 @@ const Videos = () => {
           </li>
         );
       }
-
       return (
-        data.length == 0 ? <p>Loading</p> :<VideoList videos={data} />        
-      ) 
-     
-    
+        data.length === 0 ? <p>Loading</p> :<VideoList videos={data} />        
+      )     
 }
 
 export default Videos;
