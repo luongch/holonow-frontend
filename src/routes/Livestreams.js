@@ -23,14 +23,14 @@ const Livestreams = () => {
     }    
   }
   const LivestreamList = (props) => {
-      const livestreams = props.livestreams;
-      const livestreamItems = livestreams.map((livestream)=>{
-        return <Livestream key={livestream._id} livestream={livestream}></Livestream>
-      })
-      return (
-        <ul>{livestreamItems}</ul>
-      )
-    }
+    const livestreams = props.livestreams;
+    const livestreamItems = livestreams.map((livestream)=>{
+      return <Livestream key={livestream._id} livestream={livestream}></Livestream>
+    })
+    return (
+      <ul>{livestreamItems}</ul>
+    )
+  }
     
   const Livestream = (props) => {
     const {title,id,author} = props.livestream;
@@ -38,7 +38,7 @@ const Livestreams = () => {
       <li>
         <h1>{title}</h1>
         <h2>{author}</h2>
-        <a href={`https://www.youtube.com/watch?v=${id}`}>{`https://www.youtube.com/watch?v=${id}`}</a>
+        {/* <a href={`https://www.youtube.com/watch?v=${id}`}>{`https://www.youtube.com/watch?v=${id}`}</a> */}
         <iframe width="420" height="315"
           src={`https://www.youtube.com/embed/${id}`}>
         </iframe>
@@ -52,12 +52,7 @@ const Livestreams = () => {
   }  
   return (
     <Fragment>
-      <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList livestreams={live} />}</>        
-      <div style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem"
-      }}></div>
-      <Upcoming></Upcoming>
+      <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList livestreams={live} />}</>              
     </Fragment>
   )     
 }

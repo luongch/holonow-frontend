@@ -8,7 +8,8 @@ function App() {
             borderBottom: "solid 1px",
             paddingBottom: "1rem"
       }}>
-        <Link to="live">Live / Upcoming</Link> |{" "}
+        <Link to="live">Live</Link> |{" "}
+        <Link to="upcoming">Upcoming</Link> |{" "}
         <Link to="archive">Archive</Link> |{" "}
         <Link to="about">About</Link>        
       </nav>
