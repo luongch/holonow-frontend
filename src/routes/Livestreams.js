@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import Upcoming from './Upcoming'
+import YoutubePlayer from '../components/YoutubePlayer';
 
 const Livestreams = () => {
   const [isLiveLoading, setIsLiveLoading] = useState(true);
@@ -22,29 +22,17 @@ const Livestreams = () => {
       setIsError(true);
     }    
   }
+  
   const LivestreamList = (props) => {
     const livestreams = props.livestreams;
     const livestreamItems = livestreams.map((livestream)=>{
-      return <Livestream key={livestream._id} livestream={livestream}></Livestream>
+      return <YoutubePlayer key={livestream._id} video={livestream}></YoutubePlayer>
     })
     return (
-      <ul>{livestreamItems}</ul>
+      livestreamItems
     )
   }
-    
-  const Livestream = (props) => {
-    const {title,id,author} = props.livestream;
-    return (
-      <li>
-        <h1>{title}</h1>
-        <h2>{author}</h2>
-        {/* <a href={`https://www.youtube.com/watch?v=${id}`}>{`https://www.youtube.com/watch?v=${id}`}</a> */}
-        <iframe width="420" height="315"
-          src={`https://www.youtube.com/embed/${id}`}>
-        </iframe>
-      </li>
-    );
-  }
+
   if(isError) {
     return(
       <h2>Error...</h2>

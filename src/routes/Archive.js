@@ -1,4 +1,5 @@
 import React from 'react';
+import YoutubePlayer from '../components/YoutubePlayer';
 
 const Archive = () => {
   const [isArchiveLoading, setIsArchiveLoading] = React.useState(true);
@@ -25,24 +26,13 @@ const Archive = () => {
   const ArchiveList = (props) => {
     const archive = props.archive;
     const archiveItems = archive.map((archiveItem)=>{
-      return <Archive key={archiveItem._id} archiveItem={archiveItem}></Archive>
+      return <YoutubePlayer key={archiveItem._id} video={archiveItem}></YoutubePlayer>
     })
     return (
-      <ul>{archiveItems}</ul>
+      archiveItems
     )
   }    
-  const Archive = (props) => {
-    const {title,id,author} = props.archiveItem;
-    return (
-      <li>
-        <h1>{title}</h1>
-        <h2>{author}</h2>
-        <iframe width="420" height="315"
-          src={`https://www.youtube.com/embed/${id}`}>
-        </iframe>
-      </li>
-    );
-  }
+
   if(isError) {
     return(
       <h2>Error...</h2>

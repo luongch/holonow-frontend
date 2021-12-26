@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react';
+import YoutubePlayer from '../components/YoutubePlayer';
 
 const Upcoming = () => {
   const [upcoming, setUpcoming] = useState([])
@@ -26,26 +27,12 @@ const Upcoming = () => {
   const UpcomingStreamList = ({upcomingStreams}) => {
     const upcomingStreamsItems = upcomingStreams.map((upcoming)=>{
       return (
-          <UpcomingStream key={upcoming._id} upcoming={upcoming}></UpcomingStream>
+          <YoutubePlayer key={upcoming._id} video={upcoming}></YoutubePlayer>
       )
     })
     return (
-      <ul>{upcomingStreamsItems}</ul>
+      upcomingStreamsItems
     )
-  }
-
-  const UpcomingStream = (props) => {
-    let {title, author, id} = props.upcoming
-      return (
-        <li>
-          <h1>{title}</h1>
-          <h2>{author}</h2>
-          {/* <a href={`https://www.youtube.com/watch?v=${id}`}>{`https://www.youtube.com/watch?v=${id}`}</a> */}
-          <iframe width="420" height="315"
-            src={`https://www.youtube.com/embed/${id}`}>
-          </iframe>
-        </li>
-      );
   }
 
   if(isError) {
