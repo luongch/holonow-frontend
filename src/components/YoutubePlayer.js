@@ -2,8 +2,9 @@ import { Fragment, useState } from "react";
 import styles from '../styles/styles.module.css'
 
 const YoutubePlayer = (props) => {
+    // add check for thumbnails
     const {id, title, author, concurrentViewers} = props.video;
-    const {url, width,height} = props.video.thumbnails.standard;
+    const {url, width, height} = props.video.thumbnails.high;
     const [showVideo, setShowVideo] = useState(false);
 
     return (

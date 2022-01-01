@@ -11,7 +11,7 @@ const Livestreams = () => {
   }, []);
 
   const getLiveStreams = async () => {
-    const response = await fetch("/api/v1/videos/live")    
+    const response = await fetch("/api/v1/videos/archived");
     const livestreams = await response.json();
     if(response.status === 200) {
       setIsLiveLoading(false);

@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
 
 const Archive = () => {
-  const [isArchiveLoading, setIsArchiveLoading] = React.useState(true);
-  const [isError, setIsError] = React.useState(false);
-  const [archive, setArchive] = React.useState([]);
+  const [isArchiveLoading, setIsArchiveLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [archive, setArchive] = useState([]);
 
   React.useEffect(() => {
       getArchive();
   }, []);
 
   const getArchive = async () => {
-    let response = await fetch("/api/v1/videos");
+    let response = await fetch("/api/v1/videos/archived");
     let archiveList = await response.json();
+
     if(response.status === 200) {
-      setIsArchiveLoading(false);
-      setArchive(archiveList.data);
+      setArchive(archiveList.data)
+      setIsArchiveLoading(false)                
     }
     else {
       setIsArchiveLoading(false);
@@ -30,16 +31,18 @@ const Archive = () => {
     })
     return (
       archiveItems
-    )
-  }    
+    )    
+  }
 
   if(isError) {
     return(
       <h2>Error...</h2>
     )
-  }  
+  }
   return (
-    isArchiveLoading ? <h1>Loading...</h1> : <ArchiveList archive={archive} />        
+    <Fragment>
+      <>{isArchiveLoading ? <h2>Loading archived streams...</h2> : <ArchiveList archive={archive} />}</>              
+    </Fragment>     
   )     
 }
 
