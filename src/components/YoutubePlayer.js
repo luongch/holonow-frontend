@@ -12,7 +12,7 @@ const moment = require('moment')
 const getVideoStatus = (concurrentViewers, actualStartTime, scheduledStartTime) => {
     if(concurrentViewers) {
         return <div>
-            <span>
+            <span className={styles.liveText}>
                 Live Now •&nbsp;
             </span>
             <span>
