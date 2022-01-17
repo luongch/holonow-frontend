@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
+import styles from '../styles/youtubeplayer.module.css'
 
 const Livestreams = () => {
   const [isLiveLoading, setIsLiveLoading] = useState(true);
@@ -39,9 +40,9 @@ const Livestreams = () => {
     )
   }  
   return (
-    <Fragment>
-      <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList livestreams={live} />}</>              
-    </Fragment>
+    <div className={styles.videoContainer}>
+      <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList className={styles.videoContainer} livestreams={live} />}</>              
+    </div>
   )     
 }
 

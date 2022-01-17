@@ -50,6 +50,7 @@ const getVideoStatus = (concurrentViewers, actualStartTime, scheduledStartTime) 
         }
     }
 }
+
 const YoutubePlayer = (props) => {
     // add check for thumbnails
     const {id, title, author, concurrentViewers, actualStartTime, scheduledStartTime, channelId} = props.video;
@@ -59,7 +60,7 @@ const YoutubePlayer = (props) => {
     return (
         <div className={styles.video} style={{
             width,
-            height:"452px" //better way to make the divs not overlap each other vertically?
+            height:height+95 //better way to make the divs not overlap each other vertically?
         }}>
             {showVideo ? (
                 <iframe title={title} width={width} height={height}

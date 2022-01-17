@@ -40,9 +40,9 @@
 }
 
 .video {
-  float: left;
-  margin: 5px;
-}
+  margin: 0px; 
+} 
+
 
 .title {
   overflow: hidden;
@@ -55,4 +55,13 @@
 
 .liveText {
   color: #FF0000;
+}
+
+.videoContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit ,480px);
+  grid-gap: 1em 1em;
+  width:80%;
+  float:right;
+  padding-left:1%
 }

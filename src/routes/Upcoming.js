@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
+import styles from '../styles/youtubeplayer.module.css'
 
 const Upcoming = () => {
   const [upcoming, setUpcoming] = useState([])
@@ -41,9 +42,9 @@ const Upcoming = () => {
     )
   }
   return (
-    <Fragment>
+    <div className={styles.videoContainer}>
       <>{isUpcomingLoading ? <h2>Loading upcoming...</h2> : <UpcomingStreamList upcomingStreams={upcoming} />}</>
-    </Fragment>
+    </div>
   )    
 }
 

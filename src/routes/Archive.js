@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
+import styles from '../styles/youtubeplayer.module.css'
 
 const Archive = () => {
   const [isArchiveLoading, setIsArchiveLoading] = useState(true);
@@ -40,9 +41,9 @@ const Archive = () => {
     )
   }
   return (
-    <Fragment>
+    <div className={styles.videoContainer}>
       <>{isArchiveLoading ? <h2>Loading archived streams...</h2> : <ArchiveList archive={archive} />}</>              
-    </Fragment>     
+    </div>     
   )     
 }
 
