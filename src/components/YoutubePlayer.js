@@ -60,7 +60,7 @@ const YoutubePlayer = (props) => {
     return (
         <div className={styles.video} style={{
             width,
-            height:height+95 //better way to make the divs not overlap each other vertically?
+            // height:height+95 //better way to make the divs not overlap each other vertically?
         }}>
             {showVideo ? (
                 <iframe title={title} width={width} height={height}
@@ -68,7 +68,7 @@ const YoutubePlayer = (props) => {
                 </iframe>
                 ) : (
                 <div
-                    className={styles.image}
+                    className={styles.videoThumbnail}
                     style={{
                         backgroundImage: `url(${url})`,
                         width,
@@ -81,7 +81,7 @@ const YoutubePlayer = (props) => {
                 )
             }
             <div>
-                <div className={styles.title}>{title}</div>                 
+                <div className={styles.videoTitle}>{title}</div>                 
                 <div>
                     <a href={`https://www.youtube.com/channel/${channelId}`}>{author}</a>
                 </div>

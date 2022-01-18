@@ -1,0 +1,11 @@
+.navbar {
+    background-color: red;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    position:fixed; 
+    z-index: 1; /*prevents videos from going over navbar*/
+}
+.menu-bars {
+    display:flex;    
+}
