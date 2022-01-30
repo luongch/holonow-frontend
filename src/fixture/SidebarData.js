@@ -1,23 +1,28 @@
-const SidebarData = [
-    {
-        title: 'Home',
-        path: '/'
-    },
+const SidebarData = [    
     {
         title: 'Live',
-        path: '/live'
+        path: '/live',
+        className: 'sidebarItem'
     },
     {
         title: 'Upcoming',
-        path: '/upcoming'
+        path: '/upcoming',
+        className: 'sidebarItem'        
     },
     {
         title: 'Archive',
-        path: '/archive'
+        path: '/archive',
+        className: 'sidebarItem'
+    },
+    {
+        title: 'Channel',
+        path: '/channel',
+        className: 'sidebarItem'
     },
     {
         title: 'About',
-        path: '/about'
+        path: '/about',
+        className: 'sidebarItem'
     }
 ];
 

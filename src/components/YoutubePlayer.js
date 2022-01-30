@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from '../styles/youtubeplayer.module.css'
+import '../styles/youtubeplayer.css'
 const moment = require('moment')
 
 /**
@@ -12,7 +12,7 @@ const moment = require('moment')
 const getVideoStatus = (concurrentViewers, actualStartTime, scheduledStartTime) => {
     if(concurrentViewers) {
         return <div>
-            <span className={styles.liveText}>
+            <span className="liveText">
                 Live Now •&nbsp;
             </span>
             <span>
@@ -54,21 +54,24 @@ const getVideoStatus = (concurrentViewers, actualStartTime, scheduledStartTime) 
 const YoutubePlayer = (props) => {
     // add check for thumbnails
     const {id, title, author, concurrentViewers, actualStartTime, scheduledStartTime, channelId} = props.video;
-    const {url, width, height} = props.video.thumbnails.high;
+    const {url, width, height} = props.video.thumbnails.medium;
     const [showVideo, setShowVideo] = useState(false);
 
     return (
-        <div className={styles.video} style={{
-            width,
-            // height:height+95 //better way to make the divs not overlap each other vertically?
-        }}>
+        <div className="video" 
+        // style={{
+        //     width,
+        //     // height:height+95 //better way to make the divs not overlap each other vertically?
+        // }}
+        >
             {showVideo ? (
                 <iframe title={title} width={width} height={height}
                     src={`https://www.youtube.com/embed/${id}?autoplay=1`} allow='autoplay'>
                 </iframe>
                 ) : (
                 <div
-                    className={styles.videoThumbnail}
+                    className="videoThumbnail"
+
                     style={{
                         backgroundImage: `url(${url})`,
                         width,
@@ -76,12 +79,12 @@ const YoutubePlayer = (props) => {
                     }}
                     onClick={() => setShowVideo(true)}
                 >
-                <div className={styles.playButton} />
+                <div className="playButton" />
                 </div>                    
                 )
             }
             <div>
-                <div className={styles.videoTitle}>{title}</div>                 
+                <div className="videoTitle">{title}</div>                 
                 <div>
                     <a href={`https://www.youtube.com/channel/${channelId}`}>{author}</a>
                 </div>

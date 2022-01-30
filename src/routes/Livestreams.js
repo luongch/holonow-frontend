@@ -1,15 +1,19 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useContext } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
-import styles from '../styles/youtubeplayer.module.css'
+import '../styles/youtubeplayer.css';
+import { useOutletContext } from "react-router-dom";
 
 const Livestreams = () => {
+  const [showSidebar, showProfile] = useOutletContext();
   const [isLiveLoading, setIsLiveLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [live, setLive] = useState([]);
+  
+  
 
   React.useEffect(() => {
-      getLiveStreams();
-  }, []);
+    getLiveStreams();
+  }, [showSidebar]);
 
   const getLiveStreams = async () => {
     const response = await fetch("/api/v1/videos/live");
@@ -40,8 +44,8 @@ const Livestreams = () => {
     )
   }  
   return (
-    <div className={styles.videoContainer}>
-      <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList className={styles.videoContainer} livestreams={live} />}</>              
+    <div className={showSidebar ? 'videoContainer' : ' videoContainer max'}>
+      <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList className="videoContainer" livestreams={live} />}</>              
     </div>
   )     
 }

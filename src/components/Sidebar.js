@@ -1,5 +1,5 @@
 import '../styles/sidebar.css'
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import SidebarData from "../fixture/SidebarData.js"
 
 const Sidebar = (props) => {
@@ -9,8 +9,8 @@ const Sidebar = (props) => {
                 {
                     SidebarData.map((item,index)=> {
                         return (
-                        <li key={index}>
-                            <Link to={item.path}>{item.title}</Link>
+                        <li key={index} className={item.className}>
+                            <Link  to={item.path}>{item.title}</Link>
                         </li>
                         )
                     })

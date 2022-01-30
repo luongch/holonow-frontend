@@ -1,15 +1,17 @@
 import React, { useState, Fragment } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
-import styles from '../styles/youtubeplayer.module.css'
+import '../styles/youtubeplayer.css';
+import { useOutletContext } from "react-router-dom";
 
 const Archive = () => {
+  const [showSidebar] = useOutletContext();
   const [isArchiveLoading, setIsArchiveLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [archive, setArchive] = useState([]);
 
   React.useEffect(() => {
       getArchive();
-  }, []);
+  }, [showSidebar]);
 
   const getArchive = async () => {
     let response = await fetch("/api/v1/videos/archived");
@@ -41,7 +43,7 @@ const Archive = () => {
     )
   }
   return (
-    <div className={styles.videoContainer}>
+    <div className={showSidebar ? 'videoContainer' : ' videoContainer max'}>
       <>{isArchiveLoading ? <h2>Loading archived streams...</h2> : <ArchiveList archive={archive} />}</>              
     </div>     
   )     

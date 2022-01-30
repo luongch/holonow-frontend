@@ -1,11 +1,22 @@
 .navbar {
     background-color: red;
+    height: 40px;
     width:100%;
     display:flex;
     justify-content: space-between;
     position:fixed; 
+    /* align-items:center; */
     z-index: 1; /*prevents videos from going over navbar*/
 }
 .menu-bars {
-    display:flex;    
+    margin-left: 1rem;
+    font-size: 2rem;
+    background: none;
+    margin-top: 5px;
+}
+
+.menu-profile {
+    margin-top: 5px;
+    margin-right: 1rem;
+    font-size: 2rem;
 }
