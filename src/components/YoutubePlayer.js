@@ -1,5 +1,8 @@
 import { useState } from "react";
 import '../styles/youtubeplayer.css'
+import LiveStats from "./LiveStats";
+import ScheduledStart from "./ScheduledStart";
+import LastAired from "./LastAired";
 const moment = require('moment')
 
 /**
@@ -11,43 +14,13 @@ const moment = require('moment')
  */
 const getVideoStatus = (concurrentViewers, actualStartTime, scheduledStartTime) => {
     if(concurrentViewers) {
-        return <div>
-            <span className="liveText">
-                Live Now •&nbsp;
-            </span>
-            <span>
-             {concurrentViewers} watching
-            </span>             
-        </div>
+        return <LiveStats concurrentViewers={concurrentViewers}></LiveStats>
     }
     else if(!actualStartTime && scheduledStartTime) {
-        let minutes = Math.abs(moment().diff(scheduledStartTime, 'minutes'));
-        let time = moment(scheduledStartTime).format('h:mma')
-        if (minutes < 60) { //if it's less than 60 then just display the time in minutes
-            return <div> Starts in {minutes} minutes ({time})</div>            
-        }
-        else if(minutes < 24*60 ) {  //if it's less than 24 hours then display it in hours            
-            let hours = Math.ceil(minutes/60)            
-            return <div> Starts in {hours} hours ({time})</div>
-        }
-        else {
-            let date = moment(scheduledStartTime).format('D/M/YYYY')
-            return <div> {date} ({time}) </div>
-        }
+        return <ScheduledStart scheduledStartTime={scheduledStartTime}></ScheduledStart>        
     }
     else {
-        let minutes = Math.abs(moment().diff(actualStartTime, 'minutes'));
-        if (minutes < 60) { //if it's less than 60 then just display the time in minutes
-            return <div> {minutes} minutes ago</div>            
-        }
-        else if(minutes < 24*60 ) {  //if it's less than 24 hours then display it in hours            
-            let hours = Math.ceil(minutes/60)            
-            return <div> {hours} hours ago</div>
-        }
-        else {
-            let date = moment(actualStartTime).format('D/M/YYYY')
-            return <div> {date} </div>
-        }
+        return <LastAired actualStartTime={actualStartTime}></LastAired>
     }
 }
 
