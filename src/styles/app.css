@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -8,11 +8,26 @@
     min-height: 100% !important;
     height: 100%; 
   }
+   */
+ 
+html,body {
+  margin: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
   
-  
-.app-container  {
+.app-container {
+  height: 100%;
+  width: 100%;
+  margin:0;
+  /* position: fixed; */
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: 40px 1fr;
+}
+/* .app-container  {
   position:absolute;
   width:100%;
   min-height: 100vh;
   background-color: orange;
-  }
+  } */

@@ -41,6 +41,8 @@
 
 .video {
   margin: 0px; 
+  background-color: purple;
+  width: 320px;
 } 
 
 
@@ -58,15 +60,21 @@
 }
 
 .videoContainer {
-  display: grid;
+  
+  /* display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1em 1em;
   width:90%;
   float:left;
   padding-left:1%;
   margin-top: 50px;
+  margin-left:10%; */
   background-color: orange;
-  margin-left:10%;
+  
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
 
 .videoContainer.max {
@@ -74,3 +82,9 @@
   margin-left: 0%;
   grid-template-columns: repeat(5, 1fr);
 }
+
+/* .videoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+} */

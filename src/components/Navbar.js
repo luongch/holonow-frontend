@@ -11,7 +11,7 @@ const Navbar = (props) => {
             <Link to='#' className='menu-bars' onClick={props.toggleSidebar}>
                 <FaIcons.FaBars />
             </Link>
-            <Sidebar showSidebar={showSidebar}></Sidebar>
+            {/* <Sidebar showSidebar={showSidebar}></Sidebar> */}
             <div className="menu-item">
                 search
             </div>
