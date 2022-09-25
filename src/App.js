@@ -16,7 +16,7 @@ function App() {
   
   return (
     <div className="app-container">
-      <Navbar showSidebar={showSidebar} toggleSidebar={toggleSidebar}></Navbar>
+      <Navbar></Navbar>
       <Sidebar showSidebar={showSidebar}></Sidebar>
       <Outlet context={[showSidebar, showProfile]}></Outlet>
     </div>

@@ -5,17 +5,15 @@ import { useContext, useState } from 'react';
 import Sidebar from './Sidebar';
 
 const Navbar = (props) => {
-    let showSidebar = props.showSidebar;
     return (
         <div className="navbar">
             <div className='home'>
-                <Link to='#' className='menu-bars' onClick={props.toggleSidebar}>
+                {/* <Link to='#' className='menu-bars' onClick={props.toggleSidebar}>
                     <FaIcons.FaBars />
-                </Link>
+                </Link> */}
                 <img src="../../images/Hololive_triangles_logo.svg" alt="hololive logo"></img>
                 <div className="logo">Holonow</div>
             </div>            
-            {/* <Sidebar showSidebar={showSidebar}></Sidebar> */}
             <div class="search">
                 <input type="search" id="search" />
                 <button>

@@ -1,5 +1,5 @@
 import '../styles/sidebar.css'
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SidebarData from "../fixture/SidebarData.js"
 
 const Sidebar = (props) => {

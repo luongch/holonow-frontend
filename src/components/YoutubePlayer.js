@@ -31,12 +31,7 @@ const YoutubePlayer = (props) => {
     const [showVideo, setShowVideo] = useState(false);
 
     return (
-        <div className="video" 
-        // style={{
-        //     width,
-        //     // height:height+95 //better way to make the divs not overlap each other vertically?
-        // }}
-        >
+        <div className="video">
             {showVideo ? (
                 <iframe title={title} width={width} height={height}
                     src={`https://www.youtube.com/embed/${id}?autoplay=1`} allow='autoplay'>
@@ -56,12 +51,19 @@ const YoutubePlayer = (props) => {
                 </div>                    
                 )
             }
-            <div>
-                <div className="videoTitle">{title}</div>                 
+            <div className="videoCard">
                 <div>
-                    <a href={`https://www.youtube.com/channel/${channelId}`}>{author}</a>
+                    {/* youtube profile pic here */}
+                    {/* can't put youtube profile pic because it costs too much quota
+                    I would need to call the channel api which gets expensive due to the amount of channels */}                    
                 </div>
-                {getVideoStatus(concurrentViewers, actualStartTime, scheduledStartTime)}
+                <div>
+                    <div className="videoTitle">{title}</div>                 
+                    <div>
+                        <a href={`https://www.youtube.com/channel/${channelId}`}>{author}</a>
+                    </div>
+                    {getVideoStatus(concurrentViewers, actualStartTime, scheduledStartTime)}
+                </div>                
             </div>         
         </div>
         

@@ -25,6 +25,10 @@
     font-size: 2rem;
 }
 
+#search {
+    width: 20vw;
+}
+
 .search{
     display: flex;
     padding: 5px;
@@ -41,6 +45,7 @@
 }
 
 .home img {
+    padding-left: 2.5vw;
     height: 35px;
     width: 35px;
 }

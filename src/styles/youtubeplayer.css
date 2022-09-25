@@ -53,7 +53,6 @@ a {
   color: #03DAC6
 }
 
-
 .videoTitle {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -68,7 +67,7 @@ a {
 }
 
 .videoContainer {
-  background-color: #000000;
+  /* background-color: #000000; */
   grid-column: 2/3;
   grid-row: 2/3;
   display: flex;

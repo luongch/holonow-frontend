@@ -1,7 +1,8 @@
 html,body, #root {
   margin: 0;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #000000;
 }
   
 .app-container {
@@ -11,4 +12,5 @@ html,body, #root {
   display: grid;
   grid-template-columns: 220px 8fr;
   grid-template-rows: 40px 1fr;
+  
 }
