@@ -1,12 +1,14 @@
+@import 'chicago.css';
+
+
 .navbar {
-    background-color: red;
+    background-color: #6200EE;
     height: 40px;
     width:100%;
     display:flex;
     justify-content: space-between;
     position:fixed; 
-    /* align-items:center; */
-    z-index: 1; /*prevents videos from going over navbar*/
+    z-index: 1; /*prevents sidebar from going over navbar*/
     grid-column: 1/3;
     grid-row: 1/2;
 }
@@ -21,4 +23,24 @@
     margin-top: 5px;
     margin-right: 1rem;
     font-size: 2rem;
+}
+
+.search{
+    display: flex;
+    padding: 5px;
+}
+
+.logo {
+    font-family: ChigacoFLF, sans-serif;
+    color: #26c7fe;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+}
+
+.home img {
+    height: 35px;
+    width: 35px;
 }

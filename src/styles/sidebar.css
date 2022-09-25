@@ -1,22 +1,17 @@
 .sidebar {
-    background-color: blue;
-    /* width: 10%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    float:left;
-    left: -100%;
-    transition: 850ms;
-    margin-top: 40px; */
+    background-color: #3700B3;
     grid-column: 1/2;
     grid-row: 2/3;
+    position: fixed;
+    height: 100vh;
+    width: 220px;
+    padding-top:40px
 }
 
-.sidebar.active {
+/* .sidebar.active {
     left: 0;
     transition: 350ms;
-}
+} */
 .sidebarItem {
     display: flex;
     justify-content: start;

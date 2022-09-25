@@ -5,7 +5,7 @@ import './styles/app.css';
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const toggleSidebar = () =>{ 
     setShowSidebar(!showSidebar);
