@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
-import '../styles/youtubeplayer.css';
 import { useOutletContext } from "react-router-dom";
 
 const Archive = () => {

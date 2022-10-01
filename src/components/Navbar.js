@@ -1,10 +1,18 @@
 import '../styles/navbar.css';
 import * as FaIcons from 'react-icons/fa';
-import { Link, useOutletContext } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { Link, useNavigate, useOutletContext } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
 const Navbar = (props) => {
+    let navigate = useNavigate();
+    const doSearch = () => {
+        let searchTerms = document.getElementById("search").value;
+        let path = 'search'
+        navigate({
+            pathname:path,
+            search:`?searchTerms=${searchTerms}`
+        })
+    }
     return (
         <div className="navbar">
             <div className='home'>
@@ -16,7 +24,7 @@ const Navbar = (props) => {
             </div>            
             <div class="search">
                 <input type="search" id="search" />
-                <button>
+                <button onClick={doSearch}>
                     <img src="../../icons/magnify.svg" alt="magnifying glass" />
                 </button>              
             </div>

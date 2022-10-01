@@ -6,6 +6,7 @@ import Archive from './routes/Archive'
 import About from './routes/About'
 import Livestreams from './routes/Livestreams'
 import Upcoming from './routes/Upcoming'
+import Search from './routes/Search'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
           <Route path="/upcoming" element={<Upcoming />}></Route>
           <Route path="/archive" element={<Archive />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/search" element={<Search />}></Route>
           <Route path="*" element={"Nothing here"}></Route>
         </Route>        
       </Routes>
