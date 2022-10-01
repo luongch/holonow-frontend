@@ -28,13 +28,13 @@ You should now be able to call http://localhost:{port} and see the UI
 
 
 ## Things to do
-- implement search
-- display all channels
-- display author profile picture in video card text
-- add about me page
-- add sign up/login page
-- add route to display favorites
-- clicking on logo should return you to the main page
+- [x] implement search 
+- [ ] display all channels
+- [ ] display author profile picture in video card text
+- [ ] add about me page
+- [ ] add sign up/login page
+- [ ] add route to display favorites
+- [ ] clicking on logo should return you to the main page
 
 ## Deployment
 
