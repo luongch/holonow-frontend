@@ -13,6 +13,14 @@ const Navbar = (props) => {
             search:`?searchTerms=${searchTerms}`
         })
     }
+
+    const goToLive = () => {
+        console.log("go to login page")
+        let path = 'login'
+        navigate({
+            pathname: path
+        })
+    }
     return (
         <div className="navbar">
             <div className='home'>
@@ -28,8 +36,8 @@ const Navbar = (props) => {
                     <img src="../../icons/magnify.svg" alt="magnifying glass" />
                 </button>              
             </div>
-            <div className='menu-profile'>
-                <Link to='#' >            
+            <div className='menu-profile' >
+                <Link to='/login' >            
                     <FaIcons.FaUserCircle />
                 </Link>
             </div>
