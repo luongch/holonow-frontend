@@ -8,6 +8,8 @@ import Livestreams from './routes/Livestreams'
 import Upcoming from './routes/Upcoming'
 import Search from './routes/Search'
 import Login from './routes/Login'
+import SuccessfulRedirect from './routes/SuccesfulRedirect'
+import Favorites from './routes/Favorites'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,7 +21,9 @@ ReactDOM.render(
           <Route path="/archive" element={<Archive />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/search" element={<Search />}></Route>
+          <Route path="/favorites" element={<Favorites />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
           <Route path="*" element={"Nothing here"}></Route>
         </Route>        
       </Routes>

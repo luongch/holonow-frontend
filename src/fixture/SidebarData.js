@@ -15,6 +15,11 @@ const SidebarData = [
         className: 'sidebarItem'
     },
     {
+        title: 'Favorites',
+        path: '/favorites',
+        className: 'sidebarItem'
+    },
+    {
         title: 'Channel',
         path: '/channel',
         className: 'sidebarItem'
