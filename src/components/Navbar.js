@@ -2,8 +2,10 @@ import '../styles/navbar.css';
 import * as FaIcons from 'react-icons/fa';
 import { Link, useNavigate, useOutletContext } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import ProfileMenu from "./ProfileMenu";
 
 const Navbar = (props) => {
+    let {showProfile, toggleProfile} = props
     let navigate = useNavigate();
     const doSearch = () => {
         let searchTerms = document.getElementById("search").value;
@@ -14,13 +16,6 @@ const Navbar = (props) => {
         })
     }
 
-    const goToLive = () => {
-        console.log("go to login page")
-        let path = 'login'
-        navigate({
-            pathname: path
-        })
-    }
     return (
         <div className="navbar">
             <div className='home'>
@@ -37,9 +32,10 @@ const Navbar = (props) => {
                 </button>              
             </div>
             <div className='menu-profile' >
-                <Link to='/login' >            
+                <div className='menu-profile-icon' onClick={toggleProfile}>
                     <FaIcons.FaUserCircle />
-                </Link>
+                </div>
+                <ProfileMenu showProfile={showProfile} toggleProfile={toggleProfile}></ProfileMenu>      
             </div>
         </div>
     );

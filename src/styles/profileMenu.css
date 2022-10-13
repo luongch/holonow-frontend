@@ -1,0 +1,22 @@
+.dropdown-menu {
+    min-width: 48px;
+    width: 176px;
+    z-index: 2;
+    float:right
+}
+.dropdown-content {    
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: #121212;
+}
+
+.hidden {
+    display:none;
+}
+
+.menuItem a{
+    color:white;
+    padding-left: 10px;
+}
+

@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import './styles/app.css';
 import Navbar from "./components/Navbar";
+import ProfileMenu from "./components/ProfileMenu";
 
 function App() {
   const [sessionUser, setSessionUser] = useState({});
@@ -29,7 +30,7 @@ function App() {
   
   return (
     <div className="app-container">
-      <Navbar></Navbar>
+      <Navbar showProfile={showProfile} toggleProfile={toggleProfile}></Navbar>      
       <Sidebar showSidebar={showSidebar}></Sidebar>
       <Outlet context={[showSidebar, showProfile, sessionUser]}></Outlet>
     </div>

@@ -23,6 +23,12 @@
     margin-top: 5px;
     margin-right: 1rem;
     font-size: 2rem;
+    width:220px
+    
+}
+
+.menu-profile-icon {
+    text-align: right;
 }
 
 #search {
@@ -43,6 +49,7 @@
 }
 
 .home {
+    width:220px;
     display: flex;
     align-items: center;
 }
