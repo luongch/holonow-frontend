@@ -47,6 +47,7 @@ const Livestreams = () => {
     <div className={showSidebar ? 'videoContainer' : ' videoContainer max'}>
       <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList className="videoContainer" livestreams={live} />}</>              
     </div>
+    //https://www.fuwafuwa35.com/ make use of animations here
   )     
 }
 

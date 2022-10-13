@@ -8,6 +8,7 @@ import Livestreams from './routes/Livestreams'
 import Upcoming from './routes/Upcoming'
 import Search from './routes/Search'
 import Login from './routes/Login'
+import Logout from './routes/Logout'
 import SuccessfulRedirect from './routes/SuccesfulRedirect'
 import Favorites from './routes/Favorites'
 
@@ -24,6 +25,7 @@ ReactDOM.render(
           <Route path="/favorites" element={<Favorites />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
+          <Route path="/logout" element={<Logout />}></Route>
           <Route path="*" element={"Nothing here"}></Route>
         </Route>        
       </Routes>

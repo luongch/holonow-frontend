@@ -5,7 +5,8 @@
     position: fixed;
     height: 100vh;
     width: 220px;
-    padding-top:40px
+    padding-top:40px;
+    color: #FFFFFF;
 }
 
 /* .sidebar.active {
@@ -34,6 +35,10 @@
     border-radius: 4px;
 }
 
-.sidebarItem a:hover {
+.sidebarItem:hover {
     background-color: #1a83ff;
+}
+
+.live {
+    color:red !important;
 }

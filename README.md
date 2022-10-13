@@ -32,9 +32,11 @@ You should now be able to call http://localhost:{port} and see the UI
 - [ ] display all channels
 - [ ] display author profile picture in video card text
 - [ ] add about me page
-- [ ] add sign up/login page
+- [x] add sign up/login page
+- [ ] make login page look nice
 - [ ] add route to display favorites
 - [ ] clicking on logo should return you to the main page
+- [ ] add loading animation 
 
 ## Deployment
 
@@ -42,7 +44,7 @@ You should now be able to call http://localhost:{port} and see the UI
 
 ## Built With
   - React
-  - Javascript
+  - Javascript  
 
 ## Authors
   - **Christopher Luong** 

@@ -1,7 +1,3 @@
-* {
-  color: #FFFFFF;
-}
-
 .videoThumbnail{
   position: relative;
   display: flex;
@@ -76,4 +72,5 @@ a {
   align-content: flex-start;
   padding-left: 10px;
   padding-top: 10px;
+  color: #FFFFFF;
 }

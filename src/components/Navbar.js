@@ -1,11 +1,11 @@
 import '../styles/navbar.css';
-import * as FaIcons from 'react-icons/fa';
+import {FaUserCircle} from 'react-icons/fa';
 import { Link, useNavigate, useOutletContext } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import ProfileMenu from "./ProfileMenu";
 
 const Navbar = (props) => {
-    let {showProfile, toggleProfile} = props
+    let {sessionUser, showProfile, toggleProfile} = props
     let navigate = useNavigate();
     const doSearch = () => {
         let searchTerms = document.getElementById("search").value;
@@ -33,9 +33,9 @@ const Navbar = (props) => {
             </div>
             <div className='menu-profile' >
                 <div className='menu-profile-icon' onClick={toggleProfile}>
-                    <FaIcons.FaUserCircle />
+                    <FaUserCircle />
                 </div>
-                <ProfileMenu showProfile={showProfile} toggleProfile={toggleProfile}></ProfileMenu>      
+                <ProfileMenu sessionUser={sessionUser} showProfile={showProfile} toggleProfile={toggleProfile}></ProfileMenu>      
             </div>
         </div>
     );
