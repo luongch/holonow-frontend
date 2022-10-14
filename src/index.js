@@ -11,6 +11,7 @@ import Login from './routes/Login'
 import Logout from './routes/Logout'
 import SuccessfulRedirect from './routes/SuccesfulRedirect'
 import Favorites from './routes/Favorites'
+import Channels from './routes/Channels';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,6 +24,7 @@ ReactDOM.render(
           <Route path="/about" element={<About />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/favorites" element={<Favorites />}></Route>
+          <Route path="/channels" element={<Channels />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
           <Route path="/logout" element={<Logout />}></Route>

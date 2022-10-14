@@ -1,7 +1,6 @@
 import '../styles/sidebar.css'
 import { Link } from "react-router-dom";
 import SidebarData from "../fixture/SidebarData.js"
-import { IconContext } from "react-icons";
 
 const Sidebar = (props) => {
     return (

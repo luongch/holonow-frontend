@@ -1,0 +1,32 @@
+.channel {
+    display: flex;
+    width: 400px
+}
+
+.channelInfo {
+    padding-left: 10px;
+}
+.profilePic img {
+    border-radius:50%
+}
+
+.notFav {
+    color:white;
+}
+
+.fav {
+    color: red;
+}
+
+.youtube {
+    color:red
+}
+
+.icon {
+    cursor: pointer;
+    size: 50px;
+}
+
+.iconTray {
+    display: flex;
+}

@@ -1,12 +1,14 @@
 
+import YoutubePlayer from '../components/YoutubePlayer';
 const Favorites = (props) => {
-    let {sessionUser} = props
-    console.log("from favs", sessionUser.id)
-    console.log("from favs", sessionUser.id !== "")
+    let {favorites} = props
+
+    let favoriteItems = favorites.map((favorite)=>{
+        return <YoutubePlayer key={favorite._id} video={favorite}></YoutubePlayer>
+    })
+
     return (
-        <div className="videoContainer">
-            {sessionUser.id && sessionUser.id !== "" ? <>your favorites</> : <>make an account or login to add favorites</>}
-        </div>
+        favoriteItems
     )
 }
 

@@ -25,8 +25,8 @@ const SidebarData = [
         icon: <FaHeart/>
     },
     {
-        title: 'Channel',
-        path: '/channel',
+        title: 'Channels',
+        path: '/channels',
         className: 'sidebarItem',
         icon: <FaYoutube/>
     },
