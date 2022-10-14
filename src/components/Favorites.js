@@ -5,7 +5,7 @@ const Favorites = (props) => {
     console.log("from favs", sessionUser.id !== "")
     return (
         <div className="videoContainer">
-            {sessionUser.id !== "" ? <>your favorites</> : <>make an account or login to add favorites</>}
+            {sessionUser.id && sessionUser.id !== "" ? <>your favorites</> : <>make an account or login to add favorites</>}
         </div>
     )
 }
