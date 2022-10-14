@@ -1,18 +1,9 @@
 import '../styles/Channel.css'
 import {FaYoutube, FaHeart} from 'react-icons/fa';
 import axios from 'axios'
-import React, { useState } from 'react';
 
 const Channel = (props) => {
-    let {channel, liked} = props
-    // console.log("liked", liked)
-    
-    const [isFavorited,setIsFavorited] = useState(liked)    
-    // console.log("isFavorited", isFavorited)
-
-    React.useEffect(()=>{
-        console.log("rerendering")
-    }, [isFavorited])
+    let {channel, liked, getFavorites} = props
 
     const simplifySubscribers = () => {
         let simpleSubs = ""
@@ -32,36 +23,18 @@ const Channel = (props) => {
         
         if(liked) {
             console.log("removing from favorites")
-            let response = await axios.post("/api/v1/favorites/remove", {
+            await axios.post("/api/v1/favorites/remove", {
                 channelId: channel.id
             })
-            console.log(response.data);
-            console.log("removing from favorites setIsFavorited");
-            setIsFavorited(!liked)
+            getFavorites()
         }
         else {
             console.log("adding to favorites")
-            let response = await axios.post("/api/v1/favorites/add", {
+            await axios.post("/api/v1/favorites/add", {
                 channelId: channel.id
             })  
-            console.log(response.data);
-            console.log("adding from favorites setIsFavorited");
-            setIsFavorited(!liked)
-        }
-              
-
-        // let liked = !isFavorited;
-        // setIsFavorited(!isFavorited)
-        
-        // let classList = document.getElementById(channel.id).classList
-        // if(liked) {
-        //     classList.remove("notFav")
-        //     classList.add("fav")
-        // }
-        // else {
-        //     classList.add("notFav")
-        //     classList.remove("fav")
-        // }
+            getFavorites()
+        }              
     }
 
     return (
@@ -73,7 +46,7 @@ const Channel = (props) => {
                 <div>{channel.title}</div>
                 <div>{simplifySubscribers()}</div>
                 <div className='iconTray'>
-                    <div onClick={toggleFavorites} className={isFavorited ? "fav" : "notFav"}>
+                    <div onClick={toggleFavorites} className={liked ? "fav" : "notFav"}>
                         <FaHeart size={25} className='icon' id={channel.id} />
                     </div>
                     <a href={`https://www.youtube.com/channel/${channel.id}`} target="_blank" rel="noreferrer">

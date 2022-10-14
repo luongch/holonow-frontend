@@ -19,6 +19,10 @@ const Channels = (props) => {
         
     },[sessionUser.id])
 
+    React.useEffect(() => {
+        console.log("rerendering, a channel has been added/removed from favorites")
+    },[favorites])
+
     const getFavorites = async () => {
         let response = await fetch("/api/v1/channels/favorites");
         let favoritesList = await response.json();
@@ -33,7 +37,7 @@ const Channels = (props) => {
 
     return (
         <div className='videoContainer'>
-            <ChannelsList channels={channels} favorites={favorites}></ChannelsList>
+            <ChannelsList channels={channels} favorites={favorites} getFavorites={getFavorites}></ChannelsList>
         </div>
         
     )
