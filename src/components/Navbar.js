@@ -21,6 +21,7 @@ const Navbar = (props) => {
         })
     }
     useEffect(() => {
+        console.log("use effect triggering")
         const listener = (event => {
           if (event.code === "Enter" || event.code === "NumpadEnter") {
             event.preventDefault();
@@ -31,7 +32,7 @@ const Navbar = (props) => {
         return () => {
           document.removeEventListener("keydown", listener);
         };
-      }, []);
+      });
 
     return (
         <div className="navbar">

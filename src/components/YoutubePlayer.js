@@ -3,7 +3,6 @@ import '../styles/youtubeplayer.css'
 import LiveStats from "./LiveStats";
 import ScheduledStart from "./ScheduledStart";
 import LastAired from "./LastAired";
-const moment = require('moment')
 
 /**
  * Returns html element for the video depending on whether the video is live/upcoming/archived

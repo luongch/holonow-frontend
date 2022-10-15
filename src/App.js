@@ -32,7 +32,7 @@ function App() {
     <div className="app-container">
       <Navbar sessionUser={sessionUser} showProfile={showProfile} toggleProfile={toggleProfile}></Navbar>      
       <Sidebar ></Sidebar>
-      <Outlet context={[showProfile, sessionUser, setSessionUser]}></Outlet>
+      <Outlet context={{showProfile, sessionUser, setSessionUser}}></Outlet>
     </div>
   );
 }

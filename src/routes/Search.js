@@ -5,18 +5,19 @@ import NoResults from '../components/NoResults';
 
 const Search = () => {
     const [results, setResults] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();    
+    const [searchParams] = useSearchParams();    
     React.useEffect(()=>{
+        const getSearch = async() => {
+            let response = await fetch("api/v1/videos/search?"+ new URLSearchParams({
+                searchTerms: searchParams.get("searchTerms")
+            }))
+            let responseData = await response.json();
+            setResults(responseData.data)
+        }
         getSearch();
     },[searchParams])
 
-    const getSearch = async() => {
-        let response = await fetch("api/v1/videos/search?"+ new URLSearchParams({
-            searchTerms: searchParams.get("searchTerms")
-        }))
-        let responseData = await response.json();
-        setResults(responseData.data)
-    }
+    
 
     const SearchResults = (props) => {
         const results = props.results;

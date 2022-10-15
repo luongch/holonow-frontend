@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 
 const LoginDisplay = (props) => {
     let {handleMouseDown, handleMouseUp} = props
-    const [ showProfile, sessionUser] = useOutletContext();
+    const {sessionUser} = useOutletContext();
 
     return (
         <div className="videoContainer">

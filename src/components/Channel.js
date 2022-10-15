@@ -23,16 +23,18 @@ const Channel = (props) => {
         
         if(liked) {
             console.log("removing from favorites")
-            await axios.post("/api/v1/favorites/remove", {
+            let response = await axios.post("/api/v1/favorites/remove", {
                 channelId: channel.id
             })
+            console.log(response)
             getFavorites()
         }
         else {
             console.log("adding to favorites")
-            await axios.post("/api/v1/favorites/add", {
+            let response = await axios.post("/api/v1/favorites/add", {
                 channelId: channel.id
             })  
+            console.log(response)
             getFavorites()
         }              
     }
