@@ -4,7 +4,7 @@ import SidebarData from "../fixture/SidebarData.js"
 
 const Sidebar = (props) => {
     return (
-        <nav className={props.showSidebar ? 'sidebar active' : 'sidebar'}>
+        <nav className='sidebar'>
             <ul>
                 {
                     SidebarData.map((item,index)=> {

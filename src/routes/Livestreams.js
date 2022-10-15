@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
+import NoResults from '../components/NoResults';
+import Loading from '../components/Loading';
 import '../styles/youtubeplayer.css';
-import { useOutletContext } from "react-router-dom";
 
 const Livestreams = () => {
-  const [showSidebar, showProfile] = useOutletContext();
   const [isLiveLoading, setIsLiveLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [live, setLive] = useState([]);
@@ -13,7 +13,7 @@ const Livestreams = () => {
 
   React.useEffect(() => {
     getLiveStreams();
-  }, [showSidebar]);
+  }, []);
 
   const getLiveStreams = async () => {
     const response = await fetch("/api/v1/videos/live");
@@ -30,6 +30,10 @@ const Livestreams = () => {
   
   const LivestreamList = (props) => {
     const livestreams = props.livestreams;
+    
+    if(livestreams.length === 0) {
+      return <NoResults></NoResults>
+    } 
     const livestreamItems = livestreams.map((livestream)=>{
       return <YoutubePlayer key={livestream._id} video={livestream}></YoutubePlayer>
     })
@@ -44,10 +48,9 @@ const Livestreams = () => {
     )
   }  
   return (
-    <div className={showSidebar ? 'videoContainer' : ' videoContainer max'}>
-      <>{isLiveLoading ? <h2>Loading livestreams...</h2> : <LivestreamList className="videoContainer" livestreams={live} />}</>              
+    <div className='videoContainer'>
+      <>{isLiveLoading ? <Loading /> : <LivestreamList className="videoContainer" livestreams={live} />}</>              
     </div>
-    //https://www.fuwafuwa35.com/ make use of animations here
   )     
 }
 

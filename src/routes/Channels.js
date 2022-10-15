@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 const Channels = (props) => {
     const [channels, setChannels] = useState([]);
     const [favorites, setFavorites] = useState([]);
-    const [showSidebar, showProfile, sessionUser, setSessionUser] = useOutletContext();
+    const [showProfile, sessionUser, setSessionUser] = useOutletContext();
 
     React.useEffect(() => {
         getChannels()

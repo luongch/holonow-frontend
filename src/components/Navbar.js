@@ -1,7 +1,6 @@
 import '../styles/navbar.css';
 import {FaUserCircle} from 'react-icons/fa';
-import { Link, useNavigate, useOutletContext } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import { useNavigate } from 'react-router-dom';
 import ProfileMenu from "./ProfileMenu";
 import {useEffect} from 'react'
 

@@ -3,7 +3,7 @@ import FavoritesComponent from '../components/Favorites'
 import { useOutletContext, Navigate } from "react-router-dom";
 
 const Favorites = (props) => {
-    const [showSidebar, showProfile, sessionUser] = useOutletContext();
+    const [showProfile, sessionUser] = useOutletContext();
     const [favorites, setFavorites] = useState([]);
 
     React.useEffect(()=>{

@@ -3,7 +3,7 @@ import { useOutletContext, Navigate } from "react-router-dom";
 import axios from 'axios'
 
 const Logout = () => {
-    const [showSidebar, showProfile, sessionUser, setSessionUser] = useOutletContext();
+    const [showProfile, sessionUser, setSessionUser] = useOutletContext();
     React.useEffect(() => {
         //only logout if there is a session
         if(sessionUser.id !== "") {

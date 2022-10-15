@@ -9,11 +9,8 @@ function App() {
     id: ""
   }
   const [sessionUser, setSessionUser] = useState({emptySession});
-  const [showSidebar, setShowSidebar] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  const toggleSidebar = () =>{ 
-    setShowSidebar(!showSidebar);
-  }
+  
   const toggleProfile = () =>{ 
     setShowProfile(!showProfile);
   }
@@ -34,8 +31,8 @@ function App() {
   return (
     <div className="app-container">
       <Navbar sessionUser={sessionUser} showProfile={showProfile} toggleProfile={toggleProfile}></Navbar>      
-      <Sidebar showSidebar={showSidebar}></Sidebar>
-      <Outlet context={[showSidebar, showProfile, sessionUser, setSessionUser]}></Outlet>
+      <Sidebar ></Sidebar>
+      <Outlet context={[showProfile, sessionUser, setSessionUser]}></Outlet>
     </div>
   );
 }

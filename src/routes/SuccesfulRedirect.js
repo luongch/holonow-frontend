@@ -1,8 +1,6 @@
 import React from 'react';
-import { useOutletContext } from "react-router-dom";
 
 const SuccessfulRedirect = () => {
-    const [showSidebar, showProfile, sessionUser, setSessionUser] = useOutletContext();
     React.useEffect(()=>{
         handleSuccessfulLogin();
     },[])

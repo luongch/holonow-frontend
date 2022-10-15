@@ -4,8 +4,7 @@ import {FaSignInAlt, FaCog}from 'react-icons/fa';
 
 const ProfileMenu = (props) => {
     let {sessionUser, showProfile, toggleProfile} = props
-    console.log("profilemenu", sessionUser.id)
-    console.log("profilemenu", sessionUser.id !== "")
+    
     return(
         <div className='dropdown-menu'>
             <div className={showProfile ? 'dropdown-content' : 'dropdown-content hidden'} id="dropdown-content">

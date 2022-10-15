@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from 'react';
+import Loading from '../components/Loading';
 import YoutubePlayer from '../components/YoutubePlayer';
 import '../styles/youtubeplayer.css';
-import { useOutletContext } from "react-router-dom";
 
 const Upcoming = () => {
-  const [showSidebar] = useOutletContext();
+
   const [upcoming, setUpcoming] = useState([])
   const [isUpcomingLoading, setIsUpcomingLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -44,8 +44,8 @@ const Upcoming = () => {
     )
   }
   return (
-    <div className={showSidebar ? 'videoContainer' : ' videoContainer max'}>
-      <>{isUpcomingLoading ? <h2>Loading upcoming...</h2> : <UpcomingStreamList upcomingStreams={upcoming} />}</>
+    <div className='videoContainer'>
+      <>{isUpcomingLoading ? <Loading /> : <UpcomingStreamList upcomingStreams={upcoming} />}</>
     </div>
   )    
 }

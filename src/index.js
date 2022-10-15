@@ -12,6 +12,7 @@ import Logout from './routes/Logout'
 import SuccessfulRedirect from './routes/SuccesfulRedirect'
 import Favorites from './routes/Favorites'
 import Channels from './routes/Channels';
+import Error from './components/Error'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -29,7 +30,7 @@ ReactDOM.render(
           <Route path="/login" element={<Login />}></Route>
           <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
-          <Route path="*" element={"Nothing here"}></Route>
+          <Route path="*" element={<Error/>}></Route>
         </Route>        
       </Routes>
     </BrowserRouter>  
