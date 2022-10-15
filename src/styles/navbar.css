@@ -51,12 +51,17 @@
 
 .home {
     width:220px;
+}
+
+.logoContainer {
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .home img {
-    padding-left: 2.5vw;
     height: 35px;
     width: 35px;
 }

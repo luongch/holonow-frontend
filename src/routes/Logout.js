@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Navigate } from "react-router-dom";
 import axios from 'axios'
 
 const Logout = () => {
@@ -25,9 +25,10 @@ const Logout = () => {
           }
         setSessionUser(emptySession)
         //call some kind of redirect?
+        
     }
     return(
-        <div></div>
+        <Navigate to="/login" replace={true} />
     )
 }
 

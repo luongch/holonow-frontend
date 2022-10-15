@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from './App';
 import Archive from './routes/Archive'
 import About from './routes/About'
@@ -18,6 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="/" element={<Navigate to="/live" />}></Route>
           <Route path="/live" element={<Livestreams />}></Route>
           <Route path="/upcoming" element={<Upcoming />}></Route>
           <Route path="/archive" element={<Archive />}></Route>
