@@ -1,9 +1,9 @@
 import React from 'react';
 import LoginDisplay from '../components/Login'
-import { useOutletContext } from "react-router-dom";
+// import { useOutletContext } from "react-router-dom";
 
 const Login = () => {    
-    const {baseUrl} = useOutletContext();
+    // const {baseUrl} = useOutletContext();
     /**
      * Changes the image to make it look like the image was pressed
      */

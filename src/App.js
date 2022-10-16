@@ -28,6 +28,7 @@ function App() {
   React.useEffect(()=>{
     getSession()
     console.log("getting session")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[sessionUser.id])
 
   React.useEffect(()=>{
