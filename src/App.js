@@ -36,7 +36,7 @@ function App() {
       // setBaseUrl('http://localhost:3001')
     }
     else {
-      setBaseUrl('https://holonow.onrender.com')
+      setBaseUrl('https://holonowapi.onrender.com')
     }
   },[])
 
