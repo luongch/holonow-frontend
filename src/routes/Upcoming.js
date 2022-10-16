@@ -2,30 +2,34 @@ import React, { useState, Fragment } from 'react';
 import Loading from '../components/Loading';
 import YoutubePlayer from '../components/YoutubePlayer';
 import '../styles/youtubeplayer.css';
+import { useOutletContext } from "react-router-dom";
 
 const Upcoming = () => {
 
   const [upcoming, setUpcoming] = useState([])
   const [isUpcomingLoading, setIsUpcomingLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const {baseUrl} = useOutletContext();
 
   React.useEffect(() => {
-      getUpcoming();
-  }, []);
-
-  const getUpcoming = async () => {
-    let response = await fetch("/api/v1/videos/upcoming")
-    let upcoming = await response.json();
-
-    if(response.status === 200) {
+    const getUpcoming = async () => {
+      let response = await fetch(`${baseUrl}/api/v1/videos/upcoming`)
+      let upcoming = await response.json();
+  
+      if(response.status === 200) {
+          setIsUpcomingLoading(false);
+          setUpcoming(upcoming.data)
+      }
+      else {
         setIsUpcomingLoading(false);
-        setUpcoming(upcoming.data)
+        setIsError(true);
+      } 
     }
-    else {
-      setIsUpcomingLoading(false);
-      setIsError(true);
-    } 
-  }
+
+    getUpcoming();
+  }, [baseUrl]);
+
+  
 
   const UpcomingStreamList = ({upcomingStreams}) => {
     const upcomingStreamsItems = upcomingStreams.map((upcoming)=>{

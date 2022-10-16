@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams,useOutletContext } from 'react-router-dom';
 import NoResults from '../components/NoResults';
 
 const Search = () => {
     const [results, setResults] = useState([]);
-    const [searchParams] = useSearchParams();    
+    const [searchParams] = useSearchParams();
+    const {baseUrl} = useOutletContext();
+
     React.useEffect(()=>{
         const getSearch = async() => {
-            let response = await fetch("api/v1/videos/search?"+ new URLSearchParams({
+            let response = await fetch(`${baseUrl}/api/v1/videos/search?`+ new URLSearchParams({
                 searchTerms: searchParams.get("searchTerms")
             }))
             let responseData = await response.json();
             setResults(responseData.data)
         }
         getSearch();
-    },[searchParams])
+    },[searchParams, baseUrl])
 
     
 

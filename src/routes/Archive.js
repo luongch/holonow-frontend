@@ -2,29 +2,32 @@ import React, { useState, Fragment } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
 import Loading from '../components/Loading';
 import Error from '../components/Loading';
+import { useOutletContext } from "react-router-dom";
 
 const Archive = () => {
   const [isArchiveLoading, setIsArchiveLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [archive, setArchive] = useState([]);
+  const {baseUrl} = useOutletContext();
 
   React.useEffect(() => {
+    const getArchive = async () => {
+      let response = await fetch(`${baseUrl}/api/v1/videos/archived`);
+      let archiveList = await response.json();
+  
+      if(response.status === 200) {
+        setArchive(archiveList.data)
+        setIsArchiveLoading(false)                
+      }
+      else {
+        setIsArchiveLoading(false);
+        setIsError(true)
+      }
+    }
       getArchive();
-  }, []);
+  }, [baseUrl]);
 
-  const getArchive = async () => {
-    let response = await fetch("/api/v1/videos/archived");
-    let archiveList = await response.json();
-
-    if(response.status === 200) {
-      setArchive(archiveList.data)
-      setIsArchiveLoading(false)                
-    }
-    else {
-      setIsArchiveLoading(false);
-      setIsError(true)
-    }
-  }
+  
 
   const ArchiveList = (props) => {
     const archive = props.archive;

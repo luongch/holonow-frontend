@@ -3,7 +3,7 @@ import { useOutletContext, Navigate } from "react-router-dom";
 import axios from 'axios'
 
 const Logout = () => {
-    const {sessionUser, setSessionUser} = useOutletContext();
+    const {baseUrl, sessionUser, setSessionUser} = useOutletContext();
     React.useEffect(() => {
         //only logout if there is a session
         if(sessionUser.id !== "") {
@@ -18,7 +18,7 @@ const Logout = () => {
     //call logout endpoint
     const handleLogout = async () => {
         console.log("handleLogout")
-        await axios("/api/v1/logout", { method: "POST"});
+        await axios(`${baseUrl}/api/v1/logout`, { method: "POST"});
 
         let emptySession = {
             id: ''

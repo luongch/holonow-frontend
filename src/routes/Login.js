@@ -1,12 +1,21 @@
 import React from 'react';
 import LoginDisplay from '../components/Login'
+import { useOutletContext } from "react-router-dom";
 
 const Login = () => {    
+    const {baseUrl} = useOutletContext();
     /**
      * Changes the image to make it look like the image was pressed
      */
-    const handleMouseDown = async () => {   
-        let url = "http://localhost:3001/api/v1/login/federated/google"
+    const handleMouseDown = async () => {  
+        let url =''; 
+        if(process.env.NODE_ENV === 'development') {
+            url = `http://localhost:3001/api/v1/login/federated/google`
+          }
+          else {
+            url ='https://holonow.onrender.com/api/v1/login/federated/google'
+          }
+        
         window.open(url, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
         document.getElementById("googleLoginImg").src = "../../images/btn_google_signin_dark_pressed_web.png";
         

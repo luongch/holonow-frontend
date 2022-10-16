@@ -11,7 +11,7 @@ const SuccessfulRedirect = () => {
      */
     const handleSuccessfulLogin = async () => {        
         if(window.opener) {
-            window.opener.location="http://localhost:3000/login";
+            window.opener.location=window.opener.location.href;
             window.close()
         }
     }

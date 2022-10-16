@@ -5,13 +5,21 @@ import { useOutletContext } from "react-router-dom";
 const Channels = (props) => {
     const [channels, setChannels] = useState([]);
     const [favorites, setFavorites] = useState([]);
-    const {sessionUser} = useOutletContext();
+    const {baseUrl, sessionUser} = useOutletContext();
 
     React.useEffect(() => {
+        const getChannels = async () => {
+            let response = await fetch(`${baseUrl}/api/v1/channels`);
+            let channelList = await response.json()
+            setChannels(channelList.data)
+        }
         getChannels()
-    },[])
+        
+    },[baseUrl])
 
     React.useEffect(() => {
+        console.log("sessionUSer",sessionUser.id)
+        
         //if the user has a session then we need the favorites as well
         if(sessionUser.id && sessionUser.id !== "") {
             // console.log("user has a session")
@@ -26,16 +34,10 @@ const Channels = (props) => {
 
     const getFavorites = async () => {
         if(sessionUser.id && sessionUser.id !== "") {
-            let response = await fetch("/api/v1/channels/favorites");
+            let response = await fetch(`${baseUrl}/api/v1/channels/favorites`);
             let favoritesList = await response.json();
             setFavorites(favoritesList.data)
         }
-    }
-
-    const getChannels = async () => {
-        let response = await fetch("/api/v1/channels");
-        let channelList = await response.json()
-        setChannels(channelList.data)
     }
 
     return (

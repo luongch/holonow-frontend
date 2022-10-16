@@ -3,30 +3,31 @@ import YoutubePlayer from '../components/YoutubePlayer';
 import NoResults from '../components/NoResults';
 import Loading from '../components/Loading';
 import '../styles/youtubeplayer.css';
+import { useOutletContext } from "react-router-dom";
 
 const Livestreams = () => {
   const [isLiveLoading, setIsLiveLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [live, setLive] = useState([]);
-  
+  const {baseUrl} = useOutletContext();
   
 
   React.useEffect(() => {
-    getLiveStreams();
-  }, []);
-
-  const getLiveStreams = async () => {
-    const response = await fetch("/api/v1/videos/live");
-    const livestreams = await response.json();
-    if(response.status === 200) {
-      setIsLiveLoading(false);
-      setLive(livestreams.data)
+    const getLiveStreams = async () => {
+      const response = await fetch(`${baseUrl}/api/v1/videos/live`);
+      const livestreams = await response.json();
+      if(response.status === 200) {
+        setIsLiveLoading(false);
+        setLive(livestreams.data)
+      }
+      else {
+        setIsLiveLoading(false);
+        setIsError(true);
+      }    
     }
-    else {
-      setIsLiveLoading(false);
-      setIsError(true);
-    }    
-  }
+
+    getLiveStreams();
+  }, [baseUrl]);
   
   const LivestreamList = (props) => {
     const livestreams = props.livestreams;

@@ -10,29 +10,41 @@ function App() {
   }
   const [sessionUser, setSessionUser] = useState({emptySession});
   const [showProfile, setShowProfile] = useState(false);
+  const [baseUrl, setBaseUrl] = useState("");
   
   const toggleProfile = () =>{ 
     setShowProfile(!showProfile);
   }
   const getSession = async () => {
-    let response = await fetch("/api/v1/session");
+    let response = await fetch(`${baseUrl}/api/v1/session`);
     let result = await response.json();  
     
     if(result.user) {
       setSessionUser({...result.user})
     }
+    console.log(sessionUser)
   }
   
   React.useEffect(()=>{
     getSession()
+    console.log("getting session")
   },[sessionUser.id])
+
+  React.useEffect(()=>{
+    if(process.env.NODE_ENV === 'development') {
+      // setBaseUrl('http://localhost:3001')
+    }
+    else {
+      setBaseUrl('https://holonow.onrender.com')
+    }
+  },[])
 
   
   return (
     <div className="app-container">
       <Navbar sessionUser={sessionUser} showProfile={showProfile} toggleProfile={toggleProfile}></Navbar>      
       <Sidebar ></Sidebar>
-      <Outlet context={{showProfile, sessionUser, setSessionUser}}></Outlet>
+      <Outlet context={{baseUrl, showProfile, sessionUser, setSessionUser}}></Outlet>
     </div>
   );
 }
