@@ -9,8 +9,10 @@ const SuccessfulRedirect = () => {
      * After successfully authenticating through google, the API will redirect to this component
      * Close the popup and redirect the parent window to the login page
      */
-    const handleSuccessfulLogin = async () => {        
+    const handleSuccessfulLogin = async () => {     
+        console.log("handling login") 
         if(window.opener) {
+            console.log("there is a window opener", window.opener.location.href)
             window.opener.location=window.opener.location.href;
             window.close()
         }
