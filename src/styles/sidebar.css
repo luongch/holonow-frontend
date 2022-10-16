@@ -9,10 +9,6 @@
     color: #FFFFFF;
 }
 
-/* .sidebar.active {
-    left: 0;
-    transition: 350ms;
-} */
 .sidebarItem {
     display: flex;
     justify-content: flex-start;
