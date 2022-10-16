@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^1.1.2",
     "chicago.css": "^1.0.3",
+    "http-proxy-middleware": "^2.0.6",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -16,7 +17,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://holonow.onrender.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
