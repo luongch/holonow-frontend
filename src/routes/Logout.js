@@ -6,7 +6,7 @@ const Logout = () => {
     const {baseUrl, sessionUser, setSessionUser} = useOutletContext();
     React.useEffect(() => {
         //only logout if there is a session
-        if(sessionUser.id !== "") {
+        if(sessionUser._id !== "") {
             console.log("there is a session")
             handleLogout()
         }

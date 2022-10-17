@@ -9,7 +9,7 @@ function App() {
   let emptySession = {
     id: ""
   }
-  const [sessionUser, setSessionUser] = useState({emptySession});
+  const [sessionUser, setSessionUser] = useState(emptySession);
   const [showProfile, setShowProfile] = useState(false);
   const [baseUrl, setBaseUrl] = useState("");
   
@@ -38,7 +38,7 @@ function App() {
     getSession()
     console.log("sessionUser", sessionUser)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[sessionUser.id])
+  },[])
 
   React.useEffect(()=>{
     if(process.env.NODE_ENV === 'development') {
