@@ -18,7 +18,7 @@ const Logout = () => {
     //call logout endpoint
     const handleLogout = async () => {
         console.log("handleLogout")
-        await axios(`${baseUrl}/api/v1/logout`, { method: "POST", withCredentials:true} );
+        await axios(`${baseUrl}/api/v1/logout`, { method: "GET", withCredentials:true} );
 
         let emptySession = {
             id: ''
