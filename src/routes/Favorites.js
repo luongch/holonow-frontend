@@ -7,6 +7,10 @@ const Favorites = (props) => {
     const [favorites, setFavorites] = useState([]);
 
     React.useEffect(()=>{
+        console.log("the session in favorites", sessionUser)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+    React.useEffect(()=>{
         const getFavorites = async () => {
             console.log("getFavorites", baseUrl)
             let response = await fetch(`${baseUrl}/api/v1/favorites`);
@@ -20,12 +24,12 @@ const Favorites = (props) => {
         }
     
         getFavorites()
-    },[sessionUser.id, baseUrl])
+    },[sessionUser._id, baseUrl])
 
     
     return(
         <div className="videoContainer">
-            {sessionUser.id && sessionUser.id !== "" ?
+            {sessionUser._id && sessionUser._id !== "" ?
                 <FavoritesComponent favorites={favorites} />
                 :
                 <Navigate to="/login" replace={true} />

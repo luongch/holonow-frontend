@@ -10,7 +10,7 @@ const LoginDisplay = (props) => {
             <div>
                 <div className="">
                     <div>
-                        {sessionUser.id && sessionUser.id !== '' ? 
+                        {sessionUser._id && sessionUser._id !== '' ? 
                             <div>Welcome back {sessionUser.username}</div>
                             :
                             <div>

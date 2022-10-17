@@ -18,22 +18,22 @@ const Channels = (props) => {
     },[baseUrl])
 
     React.useEffect(() => {
-        console.log("sessionUSer",sessionUser.id)
+        console.log("sessionUSer",sessionUser._id)
         
         //if the user has a session then we need the favorites as well
-        if(sessionUser.id && sessionUser.id !== "") {
+        if(sessionUser._id && sessionUser._id !== "") {
             // console.log("user has a session")
             getFavorites()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[sessionUser.id])
+    },[sessionUser._id])
 
     React.useEffect(() => {
         console.log("rerendering, a channel has been added/removed from favorites")
     },[favorites])
 
     const getFavorites = async () => {
-        if(sessionUser.id && sessionUser.id !== "") {
+        if(sessionUser._id && sessionUser._id !== "") {
             let response = await fetch(`${baseUrl}/api/v1/channels/favorites`);
             let favoritesList = await response.json();
             setFavorites(favoritesList.data)

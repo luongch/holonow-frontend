@@ -8,7 +8,7 @@ const ProfileMenu = (props) => {
     return(
         <div className='dropdown-menu'>
             <div className={showProfile ? 'dropdown-content' : 'dropdown-content hidden'} id="dropdown-content">
-                {sessionUser.id && sessionUser.id !== "" ?
+                {sessionUser._id && sessionUser._id !== "" ?
                     <span className='menuItem'>
                         <FaSignInAlt/>
                         <Link to='/logout' onClick={toggleProfile} >Logout</Link>

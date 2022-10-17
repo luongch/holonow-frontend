@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import './styles/app.css';
 import Navbar from "./components/Navbar";
+import axios from 'axios'
 
 function App() {
   let emptySession = {
@@ -16,18 +17,26 @@ function App() {
     setShowProfile(!showProfile);
   }
   const getSession = async () => {
-    let response = await fetch(`${baseUrl}/api/v1/session`);
-    let result = await response.json();  
+    axios.get(`${baseUrl}/api/v1/session`, {withCredentials:true})
+    .then((res)=>{
+      if(res.data) {
+        console.log("res.data", res.data.user)
+        setSessionUser({...res.data.user})
+      }
+    })
+    // let response = await fetch(`${baseUrl}/api/v1/session`);
+    // let result = await response.json();  
     
-    if(result.user) {
-      setSessionUser({...result.user})
-    }
-    console.log(sessionUser)
+    // if(result.user) {
+    //   setSessionUser({...result.user})
+    // }
+    // console.log(sessionUser)
   }
   
   React.useEffect(()=>{
-    getSession()
     console.log("getting session")
+    getSession()
+    console.log("sessionUser", sessionUser)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[sessionUser.id])
 
