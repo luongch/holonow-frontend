@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import './styles/app.css';
 import Navbar from "./components/Navbar";
 import axios from 'axios'
+axios.defaults.withCredentials = true
 
 function App() {
   let emptySession = {
