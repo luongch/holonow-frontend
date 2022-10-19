@@ -22,8 +22,10 @@ export default function Context(props) {
     useEffect(()=>{
         if(process.env.NODE_ENV === 'development') {
           // setBaseUrl('http://localhost:3001')
+          console.log("setting base url for dev")
         }
         else {
+            console.log("setting base url for prod", 'https://holonowapi.onrender.com')
           setBaseUrl('https://holonowapi.onrender.com')
         }
       },[])
