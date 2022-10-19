@@ -1,13 +1,9 @@
 import { useOutletContext } from "react-router-dom";
-import { globalContext } from '../Context';
-import React, { useContext } from 'react'
+import React from 'react'
 
 const LoginDisplay = (props) => {
     let {handleMouseDown, handleMouseUp} = props
     const {sessionUser} = useOutletContext();
-    const {userObject} = useContext(globalContext);
-    console.log("userObject in login component", userObject)
-    console.log("sessionUser in login component", sessionUser)
     return (
         <div className="videoContainer">
             <div>

@@ -10,16 +10,12 @@ const Livestreams = () => {
   const [isLiveLoading, setIsLiveLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [live, setLive] = useState([]);
-  // const {baseUrl} = useOutletContext();
   
 
   React.useEffect(() => {
     const getLiveStreams = async () => {
-      // const response = await fetch(`${baseUrl}/api/v1/videos/live`);
-      // const livestreams = await response.json();
       axiosInstance.get('/api/v1/videos/live')
       .then((response)=>{
-        console.log("response", response.status, response)
         if(response.status === 200) {
           setIsLiveLoading(false);
           setLive(response.data.data)

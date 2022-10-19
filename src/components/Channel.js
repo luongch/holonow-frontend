@@ -22,19 +22,15 @@ const Channel = (props) => {
     const toggleFavorites = async () => {       
         
         if(liked) {
-            console.log("removing from favorites", `/api/v1/favorites/remove`)
-            let response = await axiosInstance.post(`/api/v1/favorites/remove`, {
+            await axiosInstance.post(`/api/v1/favorites/remove`, {
                 channelId: channel.id
             })
-            console.log(response)
             getFavorites()
         }
         else {
-            console.log("adding to favorites", `/api/v1/favorites/add`)
-            let response = await axiosInstance.post(`/api/v1/favorites/add`, {
+            await axiosInstance.post(`/api/v1/favorites/add`, {
                 channelId: channel.id
             })  
-            console.log(response)
             getFavorites()
         }              
     }

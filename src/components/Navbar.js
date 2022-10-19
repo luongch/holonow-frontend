@@ -21,7 +21,6 @@ const Navbar = (props) => {
         })
     }
     useEffect(() => {
-        console.log("use effect triggering")
         const listener = (event => {
           if (event.code === "Enter" || event.code === "NumpadEnter") {
             event.preventDefault();
@@ -37,9 +36,6 @@ const Navbar = (props) => {
     return (
         <div className="navbar">
             <div className='home'>
-                {/* <Link to='#' className='menu-bars' onClick={props.toggleSidebar}>
-                    <FaIcons.FaBars />
-                </Link> */}
                 <div className="logoContainer" onClick={onLogoClick}>
                     <img src="../../images/Hololive_triangles_logo.svg" alt="hololive logo"></img>
                     <div className="logo">Holonow</div>

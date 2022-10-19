@@ -8,11 +8,9 @@ export default function Context(props) {
     const [userObject, setUserObject] = useState({id:""});
 
     useEffect(() => {
-        console.log("getting session in context component")
         axiosInstance.get('api/v1/session')
         .then((res) => {            
             if (res.data) {
-                console.log("userObject in context component",res.data.user);
                 setUserObject(res.data.user);
             }
         })        
