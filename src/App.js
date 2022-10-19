@@ -39,7 +39,7 @@ function App() {
   React.useEffect(()=>{
     console.log("getting session")
     // getSession()
-    axiosInstance.get('/api/v1/session', {withCredentials:true})
+    axiosInstance.get('/api/v1/session')
     .then((res)=>{
       if(res.data) {
         console.log("res.data", res.data.user)

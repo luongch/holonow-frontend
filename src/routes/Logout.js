@@ -21,7 +21,7 @@ const Logout = () => {
     //call logout endpoint
     const handleLogout = async () => {
         console.log("handleLogout")
-        axiosInstance.get(`/api/v1/logout`, { method: "GET", withCredentials:true})
+        axiosInstance.get(`/api/v1/logout`, { method: "GET"})
         .then((res) => {
             if (res.data === "successfully logged out") {
                 window.location.href = "/login"

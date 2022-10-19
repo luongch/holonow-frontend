@@ -9,7 +9,7 @@ export default function Context(props) {
 
     useEffect(() => {
         console.log("getting session in context component")
-        axiosInstance.get('api/v1/session', { withCredentials: true })
+        axiosInstance.get('api/v1/session')
         .then((res) => {            
             if (res.data) {
                 console.log("userObject in context component",res.data.user);
