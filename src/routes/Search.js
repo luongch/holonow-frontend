@@ -13,16 +13,10 @@ const Search = () => {
             let params =  { searchTerms: searchParams.get("searchTerms")};
             axiosInstance.get('api/v1/videos/search?', {params})
             .then((res)=> {
-                console.log(res)
                 if (res.data) {
                     setResults(res.data.data)
                 }
             })
-            // let response = await fetch(`/api/v1/videos/search?`+ new URLSearchParams({
-            //     searchTerms: searchParams.get("searchTerms")
-            // }))
-            // let responseData = await response.json();
-            // setResults(responseData.data)
         }
         getSearch();
     },[searchParams])
