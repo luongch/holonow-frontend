@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from './api/axiosConfig';
 
 export const myContext = createContext({});
 export default function Context(props) {
@@ -18,7 +19,7 @@ export default function Context(props) {
       },[])
     useEffect(() => {
         console.log("getting session in context component", `${baseUrl}/api/v1/session`)
-        axios.get(`https://holonowapi.onrender.com/api/v1/session`, { withCredentials: true })
+        axiosInstance.get('api/v1/session', { withCredentials: true })
         .then((res) => {            
             if (res.data) {
                 console.log("userObject in context component",res.data.user);
