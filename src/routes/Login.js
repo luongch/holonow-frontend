@@ -8,6 +8,7 @@ const Login = () => {
      * Changes the image to make it look like the image was pressed
      */
     const handleMouseDown = async () => {  
+        document.getElementById("googleLoginImg").src = "../../images/btn_google_signin_dark_pressed_web.png";
         let url =''; 
         if(process.env.NODE_ENV === 'development') {
             url = `http://localhost:3001/api/v1/login/federated/google`
@@ -17,7 +18,7 @@ const Login = () => {
           }
         
         window.open(url, '_self');
-        document.getElementById("googleLoginImg").src = "../../images/btn_google_signin_dark_pressed_web.png";
+        
         
         //you must navigate directly to the google login url otherwise you will gets a cors error
         //you cannot call a fetch to the api/v1/login/federated/google endpoint
