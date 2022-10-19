@@ -18,7 +18,7 @@ export default function Context(props) {
       },[])
     useEffect(() => {
         console.log("getting session in context component", `${baseUrl}/api/v1/session`)
-        axios.get(`${baseUrl}/api/v1/session`, { withCredentials: true })
+        axios.get(`https://holonowapi.onrender.com/api/v1/session`, { withCredentials: true })
         .then((res) => {            
             if (res.data) {
                 console.log("userObject in context component",res.data.user);
