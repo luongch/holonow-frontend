@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { useOutletContext } from "react-router-dom";
+// import { useOutletContext } from "react-router-dom";
 import { globalContext } from '../Context';
 import axiosInstance from '../api/axiosConfig';
 
 const Logout = () => {
-    const {setSessionUser} = useOutletContext();
+    // const {setSessionUser} = useOutletContext();
     const userObject = useContext(globalContext);
     console.log("userObject in logout component", userObject)
     React.useEffect(() => {

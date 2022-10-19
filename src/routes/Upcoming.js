@@ -2,32 +2,38 @@ import React, { useState, Fragment } from 'react';
 import Loading from '../components/Loading';
 import YoutubePlayer from '../components/YoutubePlayer';
 import '../styles/youtubeplayer.css';
-import { useOutletContext } from "react-router-dom";
+// import { useOutletContext } from "react-router-dom";
+import axiosInstance from '../api/axiosConfig';
 
 const Upcoming = () => {
 
   const [upcoming, setUpcoming] = useState([])
   const [isUpcomingLoading, setIsUpcomingLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const {baseUrl} = useOutletContext();
+  // const {baseUrl} = useOutletContext();
 
   React.useEffect(() => {
     const getUpcoming = async () => {
-      let response = await fetch(`${baseUrl}/api/v1/videos/upcoming`)
-      let upcoming = await response.json();
-  
-      if(response.status === 200) {
+      axiosInstance.get('/api/v1/videos/upcoming')
+      .then((response)=>{
+        console.log("response", response.status, response)
+        if(response.status === 200) {
           setIsUpcomingLoading(false);
-          setUpcoming(upcoming.data)
-      }
-      else {
-        setIsUpcomingLoading(false);
-        setIsError(true);
-      } 
+          setUpcoming(response.data.data)
+        }
+        else {
+          setIsUpcomingLoading(false);
+          setIsError(true);
+        } 
+      })
+      // let response = await fetch(`/api/v1/videos/upcoming`)
+      // let upcoming = await response.json();
+  
+      
     }
 
     getUpcoming();
-  }, [baseUrl]);
+  }, []);
 
   
 

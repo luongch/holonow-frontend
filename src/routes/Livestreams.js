@@ -3,31 +3,37 @@ import YoutubePlayer from '../components/YoutubePlayer';
 import NoResults from '../components/NoResults';
 import Loading from '../components/Loading';
 import '../styles/youtubeplayer.css';
-import { useOutletContext } from "react-router-dom";
+// import { useOutletContext } from "react-router-dom";
+import axiosInstance from '../api/axiosConfig';
 
 const Livestreams = () => {
   const [isLiveLoading, setIsLiveLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [live, setLive] = useState([]);
-  const {baseUrl} = useOutletContext();
+  // const {baseUrl} = useOutletContext();
   
 
   React.useEffect(() => {
     const getLiveStreams = async () => {
-      const response = await fetch(`${baseUrl}/api/v1/videos/live`);
-      const livestreams = await response.json();
-      if(response.status === 200) {
-        setIsLiveLoading(false);
-        setLive(livestreams.data)
-      }
-      else {
-        setIsLiveLoading(false);
-        setIsError(true);
-      }    
+      // const response = await fetch(`${baseUrl}/api/v1/videos/live`);
+      // const livestreams = await response.json();
+      axiosInstance.get('/api/v1/videos/live')
+      .then((response)=>{
+        console.log("response", response.status, response)
+        if(response.status === 200) {
+          setIsLiveLoading(false);
+          setLive(response.data.data)
+        }
+        else {
+          setIsLiveLoading(false);
+          setIsError(true);
+        }   
+      })
+       
     }
 
     getLiveStreams();
-  }, [baseUrl]);
+  }, []);
   
   const LivestreamList = (props) => {
     const livestreams = props.livestreams;
