@@ -8,7 +8,7 @@ export default function Context(props) {
     const [baseUrl, setBaseUrl] = useState("");
 
     useEffect(() => {
-        console.log("getting session in context component")
+        console.log("getting session in context component", `${baseUrl}/api/v1/session`)
         axios.get(`${baseUrl}/api/v1/session`, { withCredentials: true })
         .then((res) => {            
             if (res.data) {
