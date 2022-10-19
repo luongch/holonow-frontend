@@ -25,6 +25,7 @@ const getVideoStatus = (concurrentViewers, actualStartTime, scheduledStartTime) 
 
 const YoutubePlayer = (props) => {
     // add check for thumbnails
+    console.log(props.video)
     const {id, title, author, concurrentViewers, actualStartTime, scheduledStartTime, channelId} = props.video;
     const {url, width, height} = props.video.thumbnails.medium;
     const [showVideo, setShowVideo] = useState(false);
