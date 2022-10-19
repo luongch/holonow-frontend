@@ -16,7 +16,7 @@ const Favorites = (props) => {
     React.useEffect(()=>{
         const getFavorites = async () => {
             console.log("getFavorites")
-            axiosInstance.get('api/v1/favorites', { withCrendtials: true })
+            axiosInstance.get('api/v1/favorites', { withCredentials: true })
             .then((res)=> {
 
                 if (res.data) {

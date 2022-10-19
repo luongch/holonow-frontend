@@ -14,7 +14,7 @@ const Channels = (props) => {
             // let response = await fetch(`${baseUrl}/api/v1/channels`);
             // let channelList = await response.json()
             
-            axiosInstance.get('api/v1/channels', { withCrendtials: true })
+            axiosInstance.get('api/v1/channels', { withCredentials: true })
             .then((res)=> {
 
                 if (res.data) {
@@ -48,7 +48,7 @@ const Channels = (props) => {
             // let favoritesList = await response.json();
             // setFavorites(favoritesList.data)
 
-            axiosInstance.get('api/v1/channels/favorites', { withCrendtials: true })
+            axiosInstance.get('api/v1/channels/favorites', { withCredentials: true })
             .then((res)=> {
 
                 if (res.data) {
