@@ -1,12 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import './styles/app.css';
 import Navbar from "./components/Navbar";
-import axios from 'axios'
-axios.defaults.withCredentials = true
+import axios from 'axios';
+import { myContext } from './Context';
+// axios.defaults.withCredentials = true;
+
 
 function App() {
+  const userObject = useContext(myContext);
+  console.log("userObject", userObject);
   let emptySession = {
     id: ""
   }

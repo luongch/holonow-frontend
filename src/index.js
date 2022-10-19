@@ -13,9 +13,10 @@ import SuccessfulRedirect from './routes/SuccesfulRedirect'
 import Favorites from './routes/Favorites'
 import Channels from './routes/Channels';
 import Error from './components/Error'
-
+import Context from './Context';
 ReactDOM.render(
   <React.StrictMode>
+    <Context>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
@@ -34,6 +35,8 @@ ReactDOM.render(
         </Route>        
       </Routes>
     </BrowserRouter>  
+    </Context>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

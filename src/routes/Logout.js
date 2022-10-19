@@ -1,12 +1,16 @@
-import React from 'react';
-import { useOutletContext, Navigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import { useOutletContext } from "react-router-dom";
 import axios from 'axios'
+import { myContext } from '../Context';
 
 const Logout = () => {
-    const {baseUrl, sessionUser, setSessionUser} = useOutletContext();
+    const {baseUrl} = useOutletContext();
+    // const {baseUrl, sessionUser, setSessionUser} = useOutletContext();
+    const userObject = useContext(myContext);
+    console.log("userObject in logout component", userObject)
     React.useEffect(() => {
         //only logout if there is a session
-        if(sessionUser._id !== "") {
+        if(userObject) {
             console.log("there is a session")
             handleLogout()
         }
@@ -18,17 +22,23 @@ const Logout = () => {
     //call logout endpoint
     const handleLogout = async () => {
         console.log("handleLogout")
-        await axios(`${baseUrl}/api/v1/logout`, { method: "GET", withCredentials:true} );
+        axios.get(`${baseUrl}/api/v1/logout`, { method: "GET", withCredentials:true})
+        .then((res) => {
+            if (res.data === "successfully logged out") {
+                window.location.href = "/login"
+            }
+        });
 
-        let emptySession = {
-            id: ''
-          }
-        setSessionUser(emptySession)
+        // let emptySession = {
+        //     id: ''
+        //   }
+        // setSessionUser(emptySession)
         //call some kind of redirect?
         
     }
     return(
-        <Navigate to="/login" replace={true} />
+        // <Navigate to="/login" replace={true} />
+        <></>
     )
 }
 

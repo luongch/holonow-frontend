@@ -1,16 +1,19 @@
 import { useOutletContext } from "react-router-dom";
-
+import { myContext } from '../Context';
+import React, { useContext } from 'react'
 
 const LoginDisplay = (props) => {
     let {handleMouseDown, handleMouseUp} = props
     const {sessionUser} = useOutletContext();
-
+    const userObject = useContext(myContext);
+    console.log("userObject in login component", userObject)
     return (
         <div className="videoContainer">
             <div>
                 <div className="">
                     <div>
-                        {sessionUser._id && sessionUser._id !== '' ? 
+                        {userObject ?    
+                        /* {sessionUser._id && sessionUser._id !== '' ?  */
                             <div>Welcome back {sessionUser.username}</div>
                             :
                             <div>
