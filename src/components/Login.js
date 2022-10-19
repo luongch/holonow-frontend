@@ -1,10 +1,10 @@
-import { useOutletContext } from "react-router-dom";
+// import { useOutletContext } from "react-router-dom";
 import { myContext } from '../Context';
 import React, { useContext } from 'react'
 
 const LoginDisplay = (props) => {
     let {handleMouseDown, handleMouseUp} = props
-    const {sessionUser} = useOutletContext();
+    // const {sessionUser} = useOutletContext();
     const userObject = useContext(myContext);
     console.log("userObject in login component", userObject)
     return (
@@ -14,7 +14,7 @@ const LoginDisplay = (props) => {
                     <div>
                         {userObject ?    
                         /* {sessionUser._id && sessionUser._id !== '' ?  */
-                            <div>Welcome back {sessionUser.username}</div>
+                            <div>Welcome back {userObject.username}</div>
                             :
                             <div>
                                 <h4>Login</h4>                      
