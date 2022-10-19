@@ -1,12 +1,9 @@
 import '../styles/Channel.css'
 import {FaYoutube, FaHeart} from 'react-icons/fa';
-import axios from 'axios'
-import { useOutletContext } from "react-router-dom";
-
+import axiosInstance from '../api/axiosConfig';
 
 const Channel = (props) => {
     let {channel, liked, getFavorites} = props;
-    const {baseUrl} = useOutletContext();
 
     const simplifySubscribers = () => {
         let simpleSubs = ""
@@ -25,16 +22,16 @@ const Channel = (props) => {
     const toggleFavorites = async () => {       
         
         if(liked) {
-            console.log("removing from favorites", `${baseUrl}/api/v1/favorites/remove`)
-            let response = await axios.post(`${baseUrl}/api/v1/favorites/remove`, {
+            console.log("removing from favorites", `/api/v1/favorites/remove`)
+            let response = await axiosInstance.post(`/api/v1/favorites/remove`, {
                 channelId: channel.id
             })
             console.log(response)
             getFavorites()
         }
         else {
-            console.log("adding to favorites", `${baseUrl}/api/v1/favorites/add`)
-            let response = await axios.post(`${baseUrl}/api/v1/favorites/add`, {
+            console.log("adding to favorites", `/api/v1/favorites/add`)
+            let response = await axiosInstance.post(`/api/v1/favorites/add`, {
                 channelId: channel.id
             })  
             console.log(response)

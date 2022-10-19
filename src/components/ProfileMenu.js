@@ -1,14 +1,16 @@
 import { Link  } from 'react-router-dom';
 import '../styles/profileMenu.css';
 import {FaSignInAlt, FaCog}from 'react-icons/fa';
+import React, { useContext } from 'react'
+import { globalContext } from '../Context';
 
 const ProfileMenu = (props) => {
-    let {sessionUser, showProfile, toggleProfile} = props
-    
+    let {showProfile, toggleProfile} = props
+    const {userObject} = useContext(globalContext);
     return(
         <div className='dropdown-menu'>
             <div className={showProfile ? 'dropdown-content' : 'dropdown-content hidden'} id="dropdown-content">
-                {sessionUser._id && sessionUser._id !== "" ?
+                {userObject ?
                     <span className='menuItem'>
                         <FaSignInAlt/>
                         <Link to='/logout' onClick={toggleProfile} >Logout</Link>

@@ -13,29 +13,29 @@ import SuccessfulRedirect from './routes/SuccesfulRedirect'
 import Favorites from './routes/Favorites'
 import Channels from './routes/Channels';
 import Error from './components/Error'
-import Context from './Context';
+import GlobalContext from './Context';
 ReactDOM.render(
   <React.StrictMode>
-    <Context>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="/" element={<Navigate to="/live" />}></Route>
-          <Route path="/live" element={<Livestreams />}></Route>
-          <Route path="/upcoming" element={<Upcoming />}></Route>
-          <Route path="/archive" element={<Archive />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/search" element={<Search />}></Route>
-          <Route path="/favorites" element={<Favorites />}></Route>
-          <Route path="/channels" element={<Channels />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
-          <Route path="/logout" element={<Logout />}></Route>
-          <Route path="*" element={<Error/>}></Route>
-        </Route>        
-      </Routes>
-    </BrowserRouter>  
-    </Context>
+    <GlobalContext>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="/" element={<Navigate to="/live" />}></Route>
+            <Route path="/live" element={<Livestreams />}></Route>
+            <Route path="/upcoming" element={<Upcoming />}></Route>
+            <Route path="/archive" element={<Archive />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/search" element={<Search />}></Route>
+            <Route path="/favorites" element={<Favorites />}></Route>
+            <Route path="/channels" element={<Channels />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
+            <Route path="/logout" element={<Logout />}></Route>
+            <Route path="*" element={<Error/>}></Route>
+          </Route>        
+        </Routes>
+      </BrowserRouter>  
+    </GlobalContext>
     
   </React.StrictMode>,
   document.getElementById('root')

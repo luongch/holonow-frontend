@@ -3,30 +3,26 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import './styles/app.css';
 import Navbar from "./components/Navbar";
-import axios from 'axios';
-import { myContext } from './Context';
-// axios.defaults.withCredentials = true;
+import { globalContext } from './Context';
+import axiosInstance from './api/axiosConfig';
 
 
 function App() {
-  const userObject = useContext(myContext);
-  console.log("userObject", userObject);
-  let emptySession = {
-    id: ""
-  }
-  const [sessionUser, setSessionUser] = useState(emptySession);
+  const userObject = useContext(globalContext);
   const [showProfile, setShowProfile] = useState(false);
-  const [baseUrl, setBaseUrl] = useState("");
+  const [sessionUser, setSessionUser] = useState({id:""});
+  console.log("after setting sessionUser state", sessionUser);
+
   
   const toggleProfile = () =>{ 
     setShowProfile(!showProfile);
   }
   const getSession = async () => {
-    axios.get(`${baseUrl}/api/v1/session`, {withCredentials:true})
+    axiosInstance.get('/api/v1/session', {withCredentials:true})
     .then((res)=>{
       if(res.data) {
         console.log("res.data", res.data.user)
-        setSessionUser({...res.data.user})
+        setSessionUser(res.data.user)
       }
     })
     // let response = await fetch(`${baseUrl}/api/v1/session`);
@@ -38,28 +34,29 @@ function App() {
     // console.log(sessionUser)
   }
   
+  console.log("sessionUser is", sessionUser)
   React.useEffect(()=>{
     console.log("getting session")
-    getSession()
-    console.log("sessionUser", sessionUser)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // getSession()
+    axiosInstance.get('/api/v1/session', {withCredentials:true})
+    .then((res)=>{
+      if(res.data) {
+        console.log("res.data", res.data.user)
+        setSessionUser(res.data.user)
+      }
+    })
+    
+    
   },[])
-
-  React.useEffect(()=>{
-    if(process.env.NODE_ENV === 'development') {
-      // setBaseUrl('http://localhost:3001')
-    }
-    else {
-      setBaseUrl('https://holonowapi.onrender.com')
-    }
-  },[])
-
   
+  React.useEffect(()=>{
+    console.log("did the sessionUser get set?", sessionUser)
+  })
   return (
     <div className="app-container">
-      <Navbar sessionUser={sessionUser} showProfile={showProfile} toggleProfile={toggleProfile}></Navbar>      
+      <Navbar showProfile={showProfile} toggleProfile={toggleProfile}></Navbar>      
       <Sidebar ></Sidebar>
-      <Outlet context={{baseUrl, showProfile, sessionUser, setSessionUser}}></Outlet>
+      <Outlet context={{sessionUser, showProfile, setSessionUser}}></Outlet>
     </div>
   );
 }

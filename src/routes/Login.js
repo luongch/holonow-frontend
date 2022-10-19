@@ -1,14 +1,11 @@
 import React from 'react';
 import LoginDisplay from '../components/Login'
-// import { useOutletContext } from "react-router-dom";
 
 const Login = () => {    
-    // const {baseUrl} = useOutletContext();
     /**
      * Changes the image to make it look like the image was pressed
      */
     const handleMouseDown = async () => { 
-        console.log("login button clicked")
         document.getElementById("googleLoginImg").src = "../../images/btn_google_signin_dark_pressed_web.png";
         let url =''; 
         if(process.env.NODE_ENV === 'development') {
@@ -17,7 +14,6 @@ const Login = () => {
           else {
             url ='https://holonowapi.onrender.com/api/v1/login/federated/google'
           }
-        console.log("redirecting to federated/google",url)
         window.open(url, '_self');
         
         

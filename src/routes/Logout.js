@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { useOutletContext } from "react-router-dom";
-import axios from 'axios'
-import { myContext } from '../Context';
+import { globalContext } from '../Context';
+import axiosInstance from '../api/axiosConfig';
 
 const Logout = () => {
-    const {baseUrl} = useOutletContext();
-    // const {baseUrl, sessionUser, setSessionUser} = useOutletContext();
-    const userObject = useContext(myContext);
+    const {setSessionUser} = useOutletContext();
+    const userObject = useContext(globalContext);
     console.log("userObject in logout component", userObject)
     React.useEffect(() => {
         //only logout if there is a session
@@ -22,7 +21,7 @@ const Logout = () => {
     //call logout endpoint
     const handleLogout = async () => {
         console.log("handleLogout")
-        axios.get(`${baseUrl}/api/v1/logout`, { method: "GET", withCredentials:true})
+        axiosInstance.get(`/api/v1/logout`, { method: "GET", withCredentials:true})
         .then((res) => {
             if (res.data === "successfully logged out") {
                 window.location.href = "/login"

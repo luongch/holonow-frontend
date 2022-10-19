@@ -5,7 +5,7 @@ import ProfileMenu from "./ProfileMenu";
 import {useEffect} from 'react'
 
 const Navbar = (props) => {
-    let {sessionUser, showProfile, toggleProfile} = props
+    let { showProfile, toggleProfile} = props
     let navigate = useNavigate();
     const doSearch = () => {
         let searchTerms = document.getElementById("search").value;
@@ -56,7 +56,7 @@ const Navbar = (props) => {
                 <div className='menu-profile-icon' onClick={toggleProfile}>
                     <FaUserCircle />
                 </div>
-                <ProfileMenu sessionUser={sessionUser} showProfile={showProfile} toggleProfile={toggleProfile}></ProfileMenu>      
+                <ProfileMenu showProfile={showProfile} toggleProfile={toggleProfile}></ProfileMenu>      
             </div>
         </div>
     );
