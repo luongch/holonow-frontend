@@ -6,7 +6,16 @@ export default function Context(props) {
 
     const [userObject, setUserObject] = useState();
     const [baseUrl, setBaseUrl] = useState("");
-
+    useEffect(()=>{
+        if(process.env.NODE_ENV === 'development') {
+          // setBaseUrl('http://localhost:3001')
+          console.log("setting base url for dev")
+        }
+        else {
+            console.log("setting base url for prod", 'https://holonowapi.onrender.com')
+          setBaseUrl('https://holonowapi.onrender.com')
+        }
+      },[])
     useEffect(() => {
         console.log("getting session in context component", `${baseUrl}/api/v1/session`)
         axios.get(`${baseUrl}/api/v1/session`, { withCredentials: true })
@@ -19,16 +28,7 @@ export default function Context(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    useEffect(()=>{
-        if(process.env.NODE_ENV === 'development') {
-          // setBaseUrl('http://localhost:3001')
-          console.log("setting base url for dev")
-        }
-        else {
-            console.log("setting base url for prod", 'https://holonowapi.onrender.com')
-          setBaseUrl('https://holonowapi.onrender.com')
-        }
-      },[])
+    
     return (
         <myContext.Provider value={userObject}>{props.children}</myContext.Provider>
     )
