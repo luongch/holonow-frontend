@@ -39,7 +39,7 @@ function App() {
     getSession()
     console.log("sessionUser", sessionUser)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  })
 
   React.useEffect(()=>{
     if(process.env.NODE_ENV === 'development') {
