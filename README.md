@@ -41,9 +41,12 @@ You should now be able to call http://localhost:{port} and see the UI
 - [ ] add settings page
 - [ ] update README set up 
 - [ ] stop using globalContext
+- [ ] add tipsy on hover to hearts
+- [ ] handle empty favorites page
+- [ ] add better styling
 
 ## Deployment
-
+- Deployed using Netfily
 
 
 ## Built With
