@@ -46,6 +46,7 @@ You should now be able to call http://localhost:{port} and see the UI
 - [ ] add better styling
 - [ ] make cookies work with firefox
 - [ ] change site title and icon
+- [ ] make videos bigger
 
 ## Deployment
 - Deployed using Netfily
