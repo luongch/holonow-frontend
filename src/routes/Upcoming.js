@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import Loading from '../components/Loading';
+import Message from '../components/Message';
 import YoutubePlayer from '../components/YoutubePlayer';
 import '../styles/youtubeplayer.css';
 import axiosInstance from '../api/axiosConfig';
@@ -48,7 +48,7 @@ const Upcoming = () => {
   }
   return (
     <div className='videoContainer'>
-      <>{isUpcomingLoading ? <Loading /> : <UpcomingStreamList upcomingStreams={upcoming} />}</>
+      <>{isUpcomingLoading ? <Message type={"loading"}/> : <UpcomingStreamList upcomingStreams={upcoming} />}</>
     </div>
   )    
 }

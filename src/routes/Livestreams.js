@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
-import NoResults from '../components/NoResults';
-import Loading from '../components/Loading';
+import Message from '../components/Message';
 import '../styles/youtubeplayer.css';
 // import { useOutletContext } from "react-router-dom";
 import axiosInstance from '../api/axiosConfig';
@@ -35,7 +34,7 @@ const Livestreams = () => {
     const livestreams = props.livestreams;
     
     if(livestreams.length === 0) {
-      return <NoResults></NoResults>
+      return <Message type={"noresults"}/>
     } 
     const livestreamItems = livestreams.map((livestream)=>{
       return <YoutubePlayer key={livestream._id} video={livestream}></YoutubePlayer>
@@ -52,7 +51,7 @@ const Livestreams = () => {
   }  
   return (
     <div className='videoContainer'>
-      <>{isLiveLoading ? <Loading /> : <LivestreamList className="videoContainer" livestreams={live} />}</>              
+      <>{isLiveLoading ? <Message type={"loading"}/> : <LivestreamList className="videoContainer" livestreams={live} />}</>              
     </div>
   )     
 }

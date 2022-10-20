@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
 import { useSearchParams } from 'react-router-dom';
-import NoResults from '../components/NoResults';
+import Message from '../components/Message';
 import axiosInstance from '../api/axiosConfig';
 
 const Search = () => {
@@ -27,9 +27,8 @@ const Search = () => {
         const results = props.results;
         console.log("resulots", results)
         
-        if(results.length === 0) {
-            
-            return <NoResults></NoResults>
+        if(results.length === 0) {            
+            return <Message type={"noresults"}></Message>
         }
         const resultItems = results.map((resultItem)=>{
             return <YoutubePlayer key={resultItem._id} video={resultItem}></YoutubePlayer>

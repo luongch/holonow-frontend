@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import YoutubePlayer from '../components/YoutubePlayer';
-import Loading from '../components/Loading';
-import Error from '../components/Loading';
+import Message from '../components/Message';
 import axiosInstance from '../api/axiosConfig';
 
 const Archive = () => {
@@ -40,13 +39,13 @@ const Archive = () => {
 
   if(isError) {
     return(
-      <Error/>
+      <Message type={"error"} />
     )
   }
 
   return (
     <div className="videoContainer">
-      <>{isArchiveLoading ? <Loading/> : <ArchiveList archive={archive} />}</>              
+      <>{isArchiveLoading ? <Message type={"loading"} /> : <ArchiveList archive={archive} />}</>              
     </div>     
   )     
 }

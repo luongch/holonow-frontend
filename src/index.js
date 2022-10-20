@@ -12,7 +12,7 @@ import Logout from './routes/Logout'
 import SuccessfulRedirect from './routes/SuccesfulRedirect'
 import Favorites from './routes/Favorites'
 import Channels from './routes/Channels';
-import Error from './components/Error'
+import Message from './components/Message'
 import GlobalContext from './Context';
 ReactDOM.render(
   <React.StrictMode>
@@ -31,7 +31,7 @@ ReactDOM.render(
             <Route path="/login" element={<Login />}></Route>
             <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
-            <Route path="*" element={<Error/>}></Route>
+            <Route path="*" element={<div className='videoContainer'><Message message={"404 Page Not Found"} gif={"error"}/></div>}></Route>
           </Route>        
         </Routes>
       </BrowserRouter>  
