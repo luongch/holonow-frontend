@@ -47,6 +47,7 @@ You should now be able to call http://localhost:{port} and see the UI
 
 ## Deployment
 - Deployed using Netfily
+- If deploying on another backend then the baseUrl in axoiosConfig.js needs to be updated to match the backend url
 
 
 ## Built With
