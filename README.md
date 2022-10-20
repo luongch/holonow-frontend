@@ -37,7 +37,7 @@ You should now be able to call http://localhost:{port} and see the UI
 - [x] add route to display favorites
 - [x] clicking on logo should return you to the main page
 - [x] add loading animation 
-- [ ] change loading components to be more general and reusable
+- [x] change loading components to be more general and reusable
 - [ ] add settings page
 - [ ] update README set up 
 - [ ] stop using globalContext

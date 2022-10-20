@@ -14,6 +14,8 @@ const Favorites = (props) => {
             .then((res)=> {
 
                 if (res.data) {
+                    console.log("user", sessionUser)
+                    // console.log("favorites", res.data.data)
                     setFavorites(res.data.data)
                 }
             })          
@@ -21,7 +23,7 @@ const Favorites = (props) => {
     
         getFavorites()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[sessionUser])
     
     return(
         <div className="videoContainer">

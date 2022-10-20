@@ -25,7 +25,6 @@ const Search = () => {
 
     const SearchResults = (props) => {
         const results = props.results;
-        console.log("resulots", results)
         
         if(results.length === 0) {            
             return <Message type={"noresults"}></Message>

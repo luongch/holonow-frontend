@@ -18,6 +18,7 @@ function App() {
     axiosInstance.get('/api/v1/session')
     .then((res)=>{
       if(res.data) {
+        console.log("got this session", res.data.user)
         setSessionUser(res.data.user)
       }
     })
