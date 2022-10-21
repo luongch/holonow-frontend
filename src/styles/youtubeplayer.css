@@ -73,3 +73,24 @@ a {
   padding-top: 10px;
   color: #FFFFFF;
 }
+
+.videoCard {
+  display: flex;  
+  min-height: 80px;
+  
+}
+
+.videoDetails {
+  height: 100%;
+}
+
+.videoCard .profilePic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoCard .profilePic img {
+  width: 3em;
+
+}

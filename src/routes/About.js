@@ -1,6 +1,9 @@
 const About = () => {
+
     return (
-        <>About page</>
+        <div className="videoContainer">
+            About page
+        </div>
     )
 }
 

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 import '../styles/youtubeplayer.css'
 import LiveStats from "./LiveStats";
 import ScheduledStart from "./ScheduledStart";
 import LastAired from "./LastAired";
-
+import axiosInstance from '../api/axiosConfig';
 /**
  * Returns html element for the video depending on whether the video is live/upcoming/archived
  * @param {*} concurrentViewers 
@@ -28,6 +28,28 @@ const YoutubePlayer = (props) => {
     const {id, title, author, concurrentViewers, actualStartTime, scheduledStartTime, channelId} = props.video;
     const {url, width, height} = props.video.thumbnails.medium;
     const [showVideo, setShowVideo] = useState(false);
+    const [channel, setChannel] = useState();
+    const [isChannelLoading, setIsChannelLoading] = useState(true);
+    
+
+    React.useEffect(() => {
+        const getChannel = async () => {
+            axiosInstance.get(`api/v1/channels/${channelId}`)
+            .then((res)=> {
+                if(res.status === 200) {                    
+                    setChannel(res.data.data[0])
+                } 
+            })
+        }
+        getChannel()      
+    },[channelId])
+
+    React.useEffect(()=>{
+        if(typeof channel !== 'undefined') {
+            setIsChannelLoading(false)
+        }
+        
+    },[channel])
 
     return (
         <div className="video">
@@ -50,13 +72,14 @@ const YoutubePlayer = (props) => {
                 </div>                    
                 )
             }
-            <div className="videoCard">
-                <div>
-                    {/* youtube profile pic here */}
-                    {/* can't put youtube profile pic because it costs too much quota
-                    I would need to call the channel api which gets expensive due to the amount of channels */}                    
-                </div>
-                <div>
+            <div className="videoCard">                
+                {isChannelLoading ? null
+                    :
+                    <div className="profilePic">
+                        <img alt={channel.title + "profile picture"} src={channel.thumbnail.url} />
+                    </div>
+                }                
+                <div className='videoDetails'>
                     <div className="videoTitle">{title}</div>                 
                     <div>
                         <a href={`https://www.youtube.com/channel/${channelId}`}>{author}</a>
