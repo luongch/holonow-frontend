@@ -50,9 +50,12 @@ const Livestreams = () => {
     )
   }  
   return (
-    <div className='videoContainer'>
-      <>{isLiveLoading ? <Message type={"loading"}/> : <LivestreamList className="videoContainer" livestreams={live} />}</>              
+    <div className='main'>
+      <div className='videoContainer'>
+        {isLiveLoading ? <Message type={"loading"}/> : <LivestreamList className="videoContainer" livestreams={live} />}
+      </div>
     </div>
+    
   )     
 }
 

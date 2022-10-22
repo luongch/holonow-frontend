@@ -26,13 +26,16 @@ const Favorites = (props) => {
     },[sessionUser])
     
     return(
-        <div className="videoContainer">
-            {sessionUser ?
-                <FavoritesComponent favorites={favorites} />
-                :
-                <Navigate to="/login" replace={true} />
-            }
+        <div className='main'>
+            <div className="videoContainer">
+                {sessionUser ?
+                    <FavoritesComponent favorites={favorites} />
+                    :
+                    <Navigate to="/login" replace={true} />
+                }
+            </div>
         </div>
+        
     )
 }
 

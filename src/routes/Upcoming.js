@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import Message from '../components/Message';
 import YoutubePlayer from '../components/YoutubePlayer';
 import '../styles/youtubeplayer.css';
@@ -47,8 +47,10 @@ const Upcoming = () => {
     )
   }
   return (
-    <div className='videoContainer'>
-      <>{isUpcomingLoading ? <Message type={"loading"}/> : <UpcomingStreamList upcomingStreams={upcoming} />}</>
+    <div className="main">
+      <div className='videoContainer'>
+        {isUpcomingLoading ? <Message type={"loading"}/> : <UpcomingStreamList upcomingStreams={upcoming} />}
+      </div>
     </div>
   )    
 }

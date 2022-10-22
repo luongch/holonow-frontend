@@ -41,9 +41,12 @@ const Channels = (props) => {
     }
 
     return (
-        <div className='videoContainer'>
-            <ChannelsList channels={channels} favorites={favorites} getFavorites={getFavorites}></ChannelsList>
-        </div>        
+        <div className='main'>
+            <div className='videoContainer'>
+                <ChannelsList channels={channels} favorites={favorites} getFavorites={getFavorites}></ChannelsList>
+            </div> 
+        </div>
+               
     )
 }
 

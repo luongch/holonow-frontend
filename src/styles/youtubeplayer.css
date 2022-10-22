@@ -62,9 +62,17 @@ a {
   color: #FF0000;
 }
 
-.videoContainer {
+.main {
+  /* which columns and rows it should live in */
   grid-column: 2/3;
   grid-row: 2/3;
+
+  /* for pagination bar */
+  display: grid;
+  grid-template-rows: 1fr 70px;
+}
+.videoContainer {
+  
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
