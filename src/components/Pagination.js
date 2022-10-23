@@ -59,7 +59,8 @@ const Pagination = (props) => {
     }
     return(
         <div className="pagination">
-            <PageBar></PageBar>
+            {totalPages > 0 ? <PageBar></PageBar> : null}
+            
         </div>
     )
 }

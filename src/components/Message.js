@@ -15,6 +15,10 @@ const Message = (props) => {
             gif = "noresults"
             message = "Looks like there's no streams right now, try again later."
             break;
+        case "nofavorites":
+            gif = "nofavorites"
+            message = "Looks like you don't have any favorites yet, head over to Channels to find your favorite idols"
+            break;
         default:
             gif = "error"
             message = "404 Page not found"            

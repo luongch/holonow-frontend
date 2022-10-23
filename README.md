@@ -31,15 +31,12 @@ You should now be able to call http://localhost:{port} and see the UI
 - [x] implement search 
 - [x] display all channels
 - [x] display author profile picture in video card text
-- [ ] add about me page
 - [x] add sign up/login page
-- [ ] make login page look nice
 - [x] add route to display favorites
 - [x] clicking on logo should return you to the main page
 - [x] add loading animation 
 - [x] change loading components to be more general and reusable
 - [ ] add settings page
-- [ ] update README set up 
 - [ ] stop using globalContext
 - [ ] add tipsy on hover to hearts
 - [ ] handle empty favorites page
@@ -49,6 +46,10 @@ You should now be able to call http://localhost:{port} and see the UI
 - [ ] make videos bigger
 - [ ] change colour palette?
 - [ ] add multiview mode 
+- [x] add pagination
+- [ ] navigating to another page should clear search text
+- [ ] add about me page
+- [ ] make login page look nice
 
 ## Deployment
 - Deployed using Netfily

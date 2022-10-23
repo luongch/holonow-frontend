@@ -4,6 +4,7 @@ import FavoritesComponent from '../components/Favorites'
 import { Navigate } from "react-router-dom";
 import axiosInstance from '../api/axiosConfig';
 import Pagination from '../components/Pagination';
+import Message from '../components/Message';
 
 const Favorites = (props) => {
     const [favorites, setFavorites] = useState([]);
@@ -19,7 +20,6 @@ const Favorites = (props) => {
             axiosInstance.get('api/v1/favorites',{params})
             .then((res)=> {
                 if (res.data) {
-                    // console.log("favorites", res.data.data)
                     setFavorites(res.data.data)
                     setVideoCount(res.data.count)
                 }
@@ -33,7 +33,11 @@ const Favorites = (props) => {
         <div className='main'>
             <div className="videoContainer">
                 {sessionUser ?
-                    <FavoritesComponent favorites={favorites} />
+                    (favorites.length > 0 ?
+                        <FavoritesComponent favorites={favorites} />
+                        :
+                        <Message type="nofavorites"></Message>
+                    )
                     :
                     <Navigate to="/login" replace={true} />
                 }

@@ -31,7 +31,7 @@ const Navbar = (props) => {
         return () => {
           document.removeEventListener("keydown", listener);
         };
-      });
+    });
 
     return (
         <div className="navbar">
