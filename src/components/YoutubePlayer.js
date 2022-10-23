@@ -37,7 +37,7 @@ const YoutubePlayer = (props) => {
             axiosInstance.get(`api/v1/channels/${channelId}`)
             .then((res)=> {
                 if(res.status === 200) {                    
-                    setChannel(res.data.data[0])
+                    setChannel(res.data.data)
                 } 
             })
         }

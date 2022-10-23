@@ -50,6 +50,8 @@ You should now be able to call http://localhost:{port} and see the UI
 - [ ] navigating to another page should clear search text
 - [ ] add about me page
 - [ ] make login page look nice
+- [x] allow videos to be full screened
+- [ ] fix bug where cookie isn't being passed in firefox
 
 ## Deployment
 - Deployed using Netfily
