@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from './App';
 import Archive from './routes/Archive'
-import About from './routes/About'
+// import About from './routes/About'
 import Livestreams from './routes/Livestreams'
 import Upcoming from './routes/Upcoming'
 import Search from './routes/Search'

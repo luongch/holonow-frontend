@@ -1,4 +1,5 @@
-import {FaCircle, FaClock, FaArchive, FaHeart, FaYoutube, FaInfoCircle} from 'react-icons/fa';
+import {FaCircle, FaClock, FaArchive, FaHeart, FaYoutube} from 'react-icons/fa';
+// import {FaInfoCircle} from 'react-icons/fa';
 const SidebarData = [    
     {
         title: 'Live',

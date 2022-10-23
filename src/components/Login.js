@@ -1,5 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import React from 'react'
+import Message from "./Message";
+import '../styles/login.css'
 
 const LoginDisplay = (props) => {
     let {handleMouseDown, handleMouseUp} = props
@@ -7,19 +9,17 @@ const LoginDisplay = (props) => {
     return (
         <div className="main">
             <div className="videoContainer">
-                <div>
-                    {sessionUser ?    
-                        <div>Welcome back {sessionUser.username}</div>
-                        :
-                        <div>
-                            <h4>Login</h4>                      
-                            <div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
-                                <img id="googleLoginImg" src="../../images/btn_google_signin_dark_normal_web.png" alt="google sign in button"></img>
-                            </div>   
-                        </div>
-                    }
-                                            
-                </div>
+                {sessionUser ?      
+                    <Message type="welcomeback"></Message>
+                    :
+                    <div className="loginContainer">
+                        <h4>Login</h4>                      
+                        <div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+                            <img id="googleLoginImg" src="../../images/btn_google_signin_dark_normal_web.png" alt="google sign in button"></img>
+                        </div>   
+                        
+                    </div>
+                }
             </div>
         </div>
         

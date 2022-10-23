@@ -3,7 +3,7 @@
     grid-column: 1/2;
     grid-row: 2/3;
     position: fixed;
-    height: 100vh;
+    height: 100%; /*originally 100vh*/
     width: 220px;
     padding-top:40px;
     color: #FFFFFF;

@@ -1,7 +1,9 @@
 import '../styles/gifs.css';
+import { useOutletContext } from 'react-router-dom';
 
 const Message = (props) => {
-    let {type} = props
+    let {type} = props;
+    let {sessionUser} = useOutletContext();
     let gif = "";
     let message = "";
 
@@ -18,6 +20,10 @@ const Message = (props) => {
         case "nofavorites":
             gif = "nofavorites"
             message = "Looks like you don't have any favorites yet, head over to Channels to find your favorite idols"
+            break;
+        case "welcomeback":
+            gif = "welcomeBack"
+            message = `Welcome back ${sessionUser.username}!`
             break;
         default:
             gif = "error"

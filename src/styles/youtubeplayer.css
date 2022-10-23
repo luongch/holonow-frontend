@@ -69,7 +69,7 @@ a {
 
   /* for pagination bar */
   display: grid;
-  grid-template-rows: 1fr 70px;
+  grid-template-rows: 1fr 65px;
 }
 .videoContainer {
   
