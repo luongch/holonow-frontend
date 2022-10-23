@@ -54,7 +54,7 @@ const YoutubePlayer = (props) => {
     return (
         <div className="video">
             {showVideo ? (
-                <iframe title={title} width={width} height={height}
+                <iframe frameborder="0" allowfullscreen="allowfullscreen" title={title} width={width} height={height}
                     src={`https://www.youtube.com/embed/${id}?autoplay=1`} allow='autoplay'>
                 </iframe>
                 ) : (
