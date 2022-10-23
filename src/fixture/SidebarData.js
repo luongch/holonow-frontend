@@ -30,12 +30,12 @@ const SidebarData = [
         className: 'sidebarItem',
         icon: <FaYoutube/>
     },
-    {
-        title: 'About',
-        path: '/about',
-        className: 'sidebarItem',
-        icon: <FaInfoCircle/>
-    }
+    // {
+    //     title: 'About',
+    //     path: '/about',
+    //     className: 'sidebarItem',
+    //     icon: <FaInfoCircle/>
+    // }
 ];
 
 

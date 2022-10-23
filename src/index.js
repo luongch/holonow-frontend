@@ -24,14 +24,21 @@ ReactDOM.render(
             <Route path="/live" element={<Livestreams />}></Route>
             <Route path="/upcoming" element={<Upcoming />}></Route>
             <Route path="/archive" element={<Archive />}></Route>
-            <Route path="/about" element={<About />}></Route>
+            {/* <Route path="/about" element={<About />}></Route> */}
             <Route path="/search" element={<Search />}></Route>
             <Route path="/favorites" element={<Favorites />}></Route>
             <Route path="/channels" element={<Channels />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/login/redirect" element={<SuccessfulRedirect />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
-            <Route path="*" element={<div className='videoContainer'><Message message={"404 Page Not Found"} gif={"error"}/></div>}></Route>
+            <Route path="*" element={
+              <div className='main'>
+                <div className='videoContainer'>
+                  <Message message={"404 Page Not Found"} gif={"error"}/>
+                </div>
+              </div>
+            }>
+            </Route>
           </Route>        
         </Routes>
       </BrowserRouter>  

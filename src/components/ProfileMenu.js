@@ -1,6 +1,7 @@
 import { Link  } from 'react-router-dom';
 import '../styles/profileMenu.css';
-import {FaSignInAlt, FaCog}from 'react-icons/fa';
+import {FaSignInAlt}from 'react-icons/fa';
+// import {FaCog}from 'react-icons/fa';
 import React, { useContext } from 'react'
 import { globalContext } from '../Context';
 
@@ -21,10 +22,10 @@ const ProfileMenu = (props) => {
                         <Link to='/login' onClick={toggleProfile} >Login</Link>
                     </span>
                 }
-                <span className='menuItem'>
+                {/* <span className='menuItem'>
                     <FaCog />
                     <Link to='/' onClick={toggleProfile} >Settings</Link>
-                </span>
+                </span> */}
                 
             </div>
         </div>
